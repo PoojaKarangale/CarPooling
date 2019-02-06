@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, PopoverController } from '@ionic/angular';
-import { ModalPage } from '../pages/modal/modal.page';
-import { PopoverPage } from '../pages/popover/popover.page';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +16,11 @@ constructor(private nav: NavController,
             private router:Router
             ){
 }
+openInfoPost(){
+  
+}
 
+/*
 pushFunction(){
    // this.router.navigate(['second']);
  this.nav.navigateForward('/second/${this.value}');
@@ -46,6 +48,6 @@ const popover= await this.popoverCtrl.create({
 });
 return await popover.present();
   }
-
+*/
 
 }

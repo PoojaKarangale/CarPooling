@@ -10,19 +10,20 @@
 </ion-header>
 
 <ion-content padding>
-  
-<ion-item>
-  <ion-input [(ngModel)]="value" clearInput>
-  </ion-input>
-</ion-item>
-  <ion-button color="secondary" expand="full" (click)="openModal()">Go to Modal</ion-button>
-
-  <ion-button color="danger" expand="full" (click)="openPopover($event)">popover</ion-button>
-  
-  <ion-button color="dark" expand="full" (click)="pushFunction()">push function</ion-button>
-  
-  <ion-button expand="full" color="tertiary" [routerLink]="['/second',value]" routerDirection="forward">router</ion-button>
-
+  <ion-col nowrap align-items-start>
+  <ion-card onclick="openInfoPost()">
+    <ion-card-header>
+      <ion-card-subtitle>are you a vehicle owner ?</ion-card-subtitle>
+      <ion-card-title>Make a ride</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>searching for a ride</ion-card-subtitle>
+      <ion-card-title>search</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-col>
   <!--
     <ion-card class="welcome-card">
       <ion-img src="/assets/shapes.svg"></ion-img>

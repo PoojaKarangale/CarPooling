@@ -11,8 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ModalPageModule } from './pages/modal/modal.module';
 import { PopoverPageModule } from './pages/popover/popover.module';
 
-import { HomePage } from './home/home.page';
-import { SecondPage } from './pages/second/second.page';
+import { HomePage } from './pages/home/home.page';
+
 
 @NgModule({
   declarations: [AppComponent
