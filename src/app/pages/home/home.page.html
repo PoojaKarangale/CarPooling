@@ -10,18 +10,25 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-col nowrap align-items-start>
-  <ion-card onclick="openInfoPost()">
-    <ion-card-header>
+  <ion-col nowrap align-items-start class="cardCol">
+    <ion-card (click)="goInfoPost()">  <!--href="/info-post"-->
+    <ion-card-header> <!--[routerLink]="['/info-post']"  routerDirection="forward"-->   <!--routerLink="/app/pages/info-post/{{info-post.id}}"-->
       <ion-card-subtitle>are you a vehicle owner ?</ion-card-subtitle>
       <ion-card-title>Make a ride</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <img src="/assets/icon/favicon.png">
+    </ion-card-content>
   </ion-card>
-  <ion-card>
+
+  <ion-card (click)="goInfoSearch()">
     <ion-card-header>
       <ion-card-subtitle>searching for a ride</ion-card-subtitle>
       <ion-card-title>search</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+        <img src="/assets/icon/favicon.png">
+      </ion-card-content>
   </ion-card>
 </ion-col>
   <!--

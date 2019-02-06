@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-value=0;
 
 constructor(private nav: NavController, 
             private modalCtr: ModalController,
@@ -16,10 +15,13 @@ constructor(private nav: NavController,
             private router:Router
             ){
 }
-openInfoPost(){
-  
-}
 
+goInfoPost(){
+  this.router.navigate(['info-post']);
+}
+goInfoSearch(){
+  this.router.navigate(['info-search']);
+}
 /*
 pushFunction(){
    // this.router.navigate(['second']);
