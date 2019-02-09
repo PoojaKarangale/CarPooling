@@ -11,6 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ModalPageModule } from './pages/modal/modal.module';
 import { PopoverPageModule } from './pages/popover/popover.module';
 
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment'
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { HomePage } from './pages/home/home.page';
 
 
@@ -25,7 +29,9 @@ import { HomePage } from './pages/home/home.page';
     IonicModule.forRoot(),
     AppRoutingModule,
     ModalPageModule,
-    PopoverPageModule
+    PopoverPageModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,

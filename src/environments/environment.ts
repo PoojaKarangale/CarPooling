@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+    apiKey: "AIzaSyDuaYRxJl-I18gStHUGXwRym0GP8ghTKGY",
+    authDomain: "carpooling-bc275.firebaseapp.com",
+    databaseURL: "https://carpooling-bc275.firebaseio.com",
+    projectId: "carpooling-bc275",
+    storageBucket: "",
+    messagingSenderId: "153015350920"
+  }
 };
 
 /*
