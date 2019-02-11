@@ -16,14 +16,15 @@ import { environment } from '../environments/environment'
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { HomePage } from './pages/home/home.page';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+//import { GoogleMapComponent } from './google-map/google-map.component';
 
 
 @NgModule({
-  declarations: [AppComponent
-  
+  declarations: [AppComponent,// GoogleMapComponent
   ],
-  entryComponents: [
-  ],
+  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -36,6 +37,8 @@ import { HomePage } from './pages/home/home.page';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

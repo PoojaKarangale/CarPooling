@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { ModalController, NavController, LoadingController } from '@ionic/angular';
+import { ModalController, NavController, LoadingController, MenuController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { TodoService, Todo } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,38 +15,48 @@ export class LoginPage implements OnInit {
     task: 'Your ride',
     createAt: new Date().getTime(),
     priority: new Date().getTime(),
-    name:'',
-    lastName:'',
-    gender:'',
-    email:'',
+    
+    name: '',
+    lastName: '',
+    gender: '',
+    email: '',
     mobile: null,
 
-  start:'',
-  end:'',
-  timing:null,
-  vehical:null,
-  seat:null,
+    start: '',
+    end: '',
+    timing: null,
+    vehical: null,
+    seat: null,
   }
   todoId = null;
-  
+
 
   constructor(private todoService: TodoService,
-              private route: ActivatedRoute,
-              private loadingController: LoadingController,
-               private modalCtr:ModalController,
-              private nav:NavController ) { }
-/*
-  async openModal(){
-    const modal= await this.modalCtr.create({
-      component:ModalPage,
-      componentProps:{
-       // custom_id:this.value
-        //foo:'hello'
-      }
-    });
-   return await modal.present();
-  }*/
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private modalCtr: ModalController,
+    private nav: NavController,
+    public menuCtrl: MenuController) { }
+  /*
+    async openModal(){
+      const modal= await this.modalCtr.create({
+        component:ModalPage,
+        componentProps:{
+         // custom_id:this.value
+          //foo:'hello'
+        }
+      });
+     return await modal.present();
+    }*/
+  ionViewWillEnter() {
 
+    this.menuCtrl.swipeEnable(false)
+  }
+
+  ionViewDidLeave() {
+
+    this.menuCtrl.swipeEnable(true)
+  }
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
     if (this.todoId) {
@@ -84,7 +94,7 @@ export class LoginPage implements OnInit {
 
   }
 
-  
+
 
 
 }
