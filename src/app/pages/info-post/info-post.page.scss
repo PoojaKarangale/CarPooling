@@ -1,0 +1,28 @@
+#button{
+    size: 20px;
+    shape-margin: 200px;
+    resize: 200px;
+    
+}
+ion-fab-button{
+    text-decoration-color: rosybrown;
+   // position: absolute;
+    background-position-x: 200px;
+    background-position-y: 200px;
+    object-position: 200;
+}
+ion-fab [right][bottom][edge] {
+    bottom: -5vh;
+    right: -5vh;
+    
+  }
+  ion-fab {
+    position:relative;
+    left: 92%;
+    top: 88%;
+    color:white;
+    
+  }
+  .fab {
+      
+  }

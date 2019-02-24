@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="backimg">
+  <div>
     <!--  
   <ion-button (click)="openModal()">modal</ion-button>  
   <ion-list lines="full" method="post">
@@ -16,12 +16,12 @@
     </ion-item>
     -->
     <form (ngSubmit)="logForm()" class="box">
-      <ion-item id="name">
+      <ion-item class="name1">
         <ion-label>Name&nbsp;</ion-label>
         <ion-input required type="text" size="20" name="" placeholder="FirstName" [(ngModel)]="todo.name"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="name1">
         <ion-label>Last name&nbsp;</ion-label>
         <ion-input required type="text" size="20" name="" placeholder="LastName" [(ngModel)]="todo.lastName">
         </ion-input>
@@ -30,15 +30,15 @@
 
       <ion-radio-group>
         <ion-list-header [(ngModel)]="todo.gender">
-          <ion-label>Gender</ion-label>
+          <ion-label id="name1">Gender</ion-label>
         </ion-list-header>
 
-        <ion-item>
+        <ion-item class="name1">
           <ion-label>Female</ion-label>
           <ion-radio slot="start" value="Female"></ion-radio>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="name1">
           <ion-label>Male</ion-label>
           <ion-radio slot="start" value="Male"></ion-radio>
         </ion-item>
@@ -59,18 +59,18 @@
       <ion-input required type="text" placeholder="gender" [(ngModel)]="todo.gender"></ion-input>
     </ion-item>
     -->
-      <ion-item>
-        <ion-label>E-mail &nbsp;</ion-label>
+      <ion-item class="name1">
+        <ion-label id="name2">E-mail &nbsp;</ion-label>
         <ion-input required type="text" name="" placeholder="example@gmail.com" size="20" [(ngModel)]="todo.email">
         </ion-input>
       </ion-item>
 
 
-      <ion-item>
-        <ion-label>Mobile Number &nbsp;</ion-label>
+      <ion-item class="name1">
+        <ion-label id="name2">Mobile Number &nbsp;</ion-label>
         <ion-input required type="tel" size="20" required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="name1">
         <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()">Login</ion-input>
       </ion-item>
 
