@@ -18,23 +18,23 @@ export class AppComponent {
     {
       title: 'List',
       url: '/list',
-      icon: 'list'
+      icon: 'albums'
     },
     {
       title: 'My Rides',
       url: '/info-post',
-      icon: 'list'
+      icon: 'filing'
     },
     {
       title: 'info-search',
       url: '/info-search',
-      icon: 'list'
+      icon: 'analytics'
     }
     ,
     {
       title: 'login',
       url: '/login',
-      icon: 'list'
+      icon: 'key'
     }
   ];
 

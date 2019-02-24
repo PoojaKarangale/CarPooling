@@ -1,0 +1,72 @@
+div{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+    background: linear-gradient(200deg,#633ce0 30%,#0ec254 100%);
+  //  background: #34495e;
+}
+
+#backimg{
+    height: 100%;
+    width:100%; 
+    background: linear-gradient(200deg,#633ce0 30%,#0ec254 100%);
+   // background-size: cover;
+  //  background-image: -webkit-gradient()
+}
+.box{
+    
+    background: linear-gradient(200deg,#633ce0 30%,#0ec254 100%);
+    //background:image-set("src\assets\icon\log.jpeg");
+ 
+    background-size: cover;
+    width: 300px;
+    padding: 0;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top:50%;
+    right: 50%;
+   // background:white;
+    text-align: center;
+}
+.box ion-input[type="text"],ion-input[type="tel"] {
+    border: 0;
+    //background: none;
+    display: block;
+    margin:20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:18px;
+    font-style: inherit;
+    border-radius: 24px;
+    transition-property:  0.25s;
+}
+.box ion-input[type="text"] :focus,ion-input[type="tel"] :focus {
+width:200px;
+border-color: #14532e;
+}
+
+.box ion-input[type="submit"] {
+    border: 0;
+  //  background: none;
+    display: block;
+    margin:20px auto;
+    text-align: center;
+    border: 2px solid #1e49a7;
+    padding: 14px 40px;
+    outline: none;
+    color:black;
+    border-radius: 24px;
+    transition-property:  0.25s;
+    cursor: pointer;
+   
+}
+.box ion-input[type="submit"]:hover {
+  //  background: #1e49a7;
+}
