@@ -1,42 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
+  <ion-toolbar color="primary">
+
+    <div>
+      <ion-row nowrap align-items-start>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          CarPooling
+        </ion-title>
+
+        <ion-row nowrap align-items-start>
+          <ion-button slot="end" (click)="goInfoPost()">
+            <ion-icon name="albums"></ion-icon>
+            <!-- <img src="/assets/icon/favicon.png">  -->
+          </ion-button>
+          <ion-button slot="end" (click)="goInfoSearch()">
+            <ion-icon name="create"></ion-icon>
+            <!-- <img src="/assets/icon/favicon.png">  -->
+          </ion-button>
+        </ion-row>
+      </ion-row>
+    </div>
+
   </ion-toolbar>
+
+  <!-- 
+
+  <ion-row>
+    <ion-col text-start padding-top>
+      
+    </ion-col>
+    <ion-col text-end>
+      <ion-button (click)="loadMap()" shape="round" fill="outline">
+        <ion-icon slot="start" name="locate"></ion-icon>
+        Where I Am
+      </ion-button>
+    </ion-col>
+  </ion-row>
+-->
+
 </ion-header>
 
 <ion-content padding>
-  <div class="cards">
-    <ion-col nowrap align-items-start>
-
-      <ion-card (click)="goInfoPost()">
-        <!--href="/info-post"-->
-        <ion-card-header>
-          <!--[routerLink]="['/info-post']"  routerDirection="forward"-->
-          <!--routerLink="/app/pages/info-post/{{info-post.id}}"-->
-          <ion-card-subtitle></ion-card-subtitle>
-          <ion-card-title>My rides</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <!-- <img src="/assets/icon/favicon.png">  -->
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card id="ioncard2" (click)="goInfoSearch()">
-        <ion-card-header>
-          <ion-card-subtitle>searching for a ride</ion-card-subtitle>
-          <ion-card-title>search</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <!-- <img src="/assets/icon/favicon.png">  -->
-        </ion-card-content>
-      </ion-card>
-
-    </ion-col>
-
-  </div>
+  
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>infoPost</ion-title>
+    <ion-title text-capitalize>infoPost</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content padding>
+
 
   <ion-list>
     <ion-item-sliding *ngFor="let item of todos">
@@ -38,9 +39,10 @@
   </div>
 </ng-container> -->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/info-search" routerDirection="forward">
-      <ion-icon name="add"></ion-icon>
+  <ion-fab bottom right edge vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" bottom right edge size="small" fill="outline" routerLink="/info-search" id="button"
+      routerDirection="forward">
+      <ion-icon ion-fab name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

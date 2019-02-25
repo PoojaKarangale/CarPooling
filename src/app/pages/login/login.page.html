@@ -1,25 +1,50 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <!--  
-  <ion-button (click)="openModal()">modal</ion-button>  -->
-  <ion-list lines="full">
-    <!-- 
+  <div>
+    <!--  
+  <ion-button (click)="openModal()">modal</ion-button>  
+  <ion-list lines="full" method="post">
+    
     <ion-item>
       <ion-label>Task name</ion-label>
       <ion-input type="text" placeholder="task" [(ngModel)]="todo.task"></ion-input>
     </ion-item>
     -->
-    <ion-item>
-      <ion-label>Name</ion-label>
-      <ion-input required type="text" placeholder="name" [(ngModel)]="todo.name"></ion-input>
-      <ion-label>Last name</ion-label>
-      <ion-input required type="text" placeholder="lastName" [(ngModel)]="todo.lastName"></ion-input>
-    </ion-item>
+    <form (ngSubmit)="logForm()" class="box">
+      <ion-item class="name1">
+        <ion-label>Name&nbsp;</ion-label>
+        <ion-input required type="text" size="20" name="" placeholder="FirstName" [(ngModel)]="todo.name"></ion-input>
+      </ion-item>
+
+      <ion-item class="name1">
+        <ion-label>Last name&nbsp;</ion-label>
+        <ion-input required type="text" size="20" name="" placeholder="LastName" [(ngModel)]="todo.lastName">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-radio-group>
+        <ion-list-header [(ngModel)]="todo.gender">
+          <ion-label id="name1">Gender</ion-label>
+        </ion-list-header>
+
+        <ion-item class="name1">
+          <ion-label>Female</ion-label>
+          <ion-radio slot="start" value="Female"></ion-radio>
+        </ion-item>
+
+        <ion-item class="name1">
+          <ion-label>Male</ion-label>
+          <ion-radio slot="start" value="Male"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+      <!--
     <ion-item>
       <ion-label>Gender</ion-label>
       <ion-select placeholder="Select Gender" [(ngModel)]="todo.gender">
@@ -27,22 +52,31 @@
         <ion-select-option value="male">Male</ion-select-option>
       </ion-select>
     </ion-item>
-    <!--  
+  -->
+      <!--  
     <ion-item>
         <ion-label>Gender</ion-label>
       <ion-input required type="text" placeholder="gender" [(ngModel)]="todo.gender"></ion-input>
     </ion-item>
     -->
-    <ion-item>
-      <ion-label>E-mail</ion-label>
-      <ion-input required type="text" placeholder="email" [(ngModel)]="todo.email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Mobile Number</ion-label>
-      <ion-input required type="number" placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button expands="full" (click)="saveTodo()">Save</ion-button>
+      <ion-item class="name1">
+        <ion-label id="name2">E-mail &nbsp;</ion-label>
+        <ion-input required type="text" name="" placeholder="example@gmail.com" size="20" [(ngModel)]="todo.email">
+        </ion-input>
+      </ion-item>
 
 
+      <ion-item class="name1">
+        <ion-label id="name2">Mobile Number &nbsp;</ion-label>
+        <ion-input required type="tel" size="20" required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
+      </ion-item>
+      <ion-item class="name1">
+        <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()">Login</ion-input>
+      </ion-item>
+
+    </form>
+
+
+
+  </div>
 </ion-content>

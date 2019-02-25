@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,36 +19,39 @@ export class AppComponent {
     {
       title: 'List',
       url: '/list',
-      icon: 'list'
+      icon: 'albums'
     },
     {
       title: 'My Rides',
       url: '/info-post',
-      icon: 'list'
+      icon: 'filing'
     },
     {
       title: 'info-search',
       url: '/info-search',
-      icon: 'list'
+      icon: 'analytics'
     }
     ,
     {
       title: 'login',
       url: '/login',
-      icon: 'list'
+      icon: 'key'
     }
   ];
 
   constructor(
+    private router : Router,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
+    
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.router.navigateByUrl('login');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
