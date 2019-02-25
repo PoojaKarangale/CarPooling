@@ -1,100 +1,86 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, PopoverController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Todo, TodoService } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
-import { NativeGeocoderOptions, NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
-declare var google;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
 export class HomePage implements OnInit {
-
-  @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  address: string;
-
+  /*
+  todo: Todo = {
+    task: 'Test 123',
+    createAt: new Date().getTime(),
+    priority: 2
+  }
+  todoId = null;
+  */
   constructor(private nav: NavController,
     private todoService: TodoService,
     private modalCtr: ModalController,
     private route: ActivatedRoute,
     private popoverCtrl: PopoverController,
     private loadingController: LoadingController,
-    private router: Router,
-
-    public loadingCtrl: LoadingController,
-    private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
+    private router: Router
   ) {
   }
+  ngOnInit(){}
+  /*
   ngOnInit() {
-    this.loadMap();
+    this.todoId = this.route.snapshot.params['id'];
+    if (this.todoId) {
+      this.loadTodo();
+    }
   }
-
+  
+  async loadTodo() {
+    const loading = await this.loadingController.create({
+      message: 'Loading Todo..'
+    });
+    await loading.present();
+    this.todoService.getTodo(this.todoId).subscribe(rec => {
+      loading.dismiss();
+      this.todo = rec;
+    });
+  }
+  */
   goInfoPost() {
     this.router.navigate(['info-post']);
   }
   goInfoSearch() {
     this.router.navigate(['info-search']);
   }
-
-
-
-  loadMap() {
-    this.geolocation.getCurrentPosition().then((resp) => {
-      let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-
-      this.getAddressFromCoords(resp.coords.latitude, resp.coords.longitude);
-
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-      this.map.addListener('tilesloaded', () => {
-        console.log('accuracy', this.map);
-        this.getAddressFromCoords(this.map.center.lat(), this.map.center.lng())
-      });
-
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
-  }
-
-  getAddressFromCoords(lattitude, longitude) {
-    console.log("getAddressFromCoords " + lattitude + " " + longitude);
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
-    };
-
-    this.nativeGeocoder.reverseGeocode(lattitude, longitude, options)
-      .then((result: NativeGeocoderReverseResult[]) => {
-        this.address = "";
-        let responseAddress = [];
-        for (let [key, value] of Object.entries(result[0])) {
-          if (value.length > 0)
-            responseAddress.push(value);
-
+  /*
+  pushFunction(){
+     // this.router.navigate(['second']);
+   this.nav.navigateForward('/second/${this.value}');
+   //this.nav.navigateForward('/second');
+    }
+  
+    async openModal(){
+      const modal= await this.modalCtr.create({
+        component:ModalPage,
+        componentProps:{
+          custom_id:this.value
+          //foo:'hello'
         }
-        responseAddress.reverse();
-        for (let value of responseAddress) {
-          this.address += value + ", ";
-        }
-        this.address = this.address.slice(0, -2);
-      })
-      .catch((error: any) => {
-        this.address = "Address Not Available!";
       });
-
-  }
-
-
+     return await modal.present();
+    }
+  
+   async openPopover(event: Event){
+  const popover= await this.popoverCtrl.create({
+    component:PopoverPage,
+    componentProps:{
+      custom_id:this.value
+    },
+    event : event
+  });
+  return await popover.present();
+    }
+  */
 
 }

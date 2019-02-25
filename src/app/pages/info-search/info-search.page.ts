@@ -18,13 +18,13 @@ export class InfoSearchPage implements OnInit {
     lastName:'',
     gender:'',
     email:'',
-    mobile:null,
+    mobile:0,
 
   start:'',
   end:'',
-  timing:null,
-  vehical:null,
-  seat:null,
+  timing:0,
+  vehical:0,
+  seat:0,
   }
   todoId = null;
   constructor(private todoService: TodoService,

@@ -1,61 +1,77 @@
 <ion-header>
   <ion-toolbar>
-    
-
-    <div>
-      <ion-row nowrap align-items-start>
-          <ion-buttons slot="start">
-              <ion-menu-button></ion-menu-button>
-            </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-     CarPooling
+      Home
     </ion-title>
-   
-      <ion-row nowrap align-items-start>
-        <ion-button slot="end" (click)="goInfoPost()">
-          <ion-icon name="albums"></ion-icon>
-          <!-- <img src="/assets/icon/favicon.png">  -->
-        </ion-button>
-        <ion-button slot="end" (click)="goInfoSearch()">
-          <ion-icon name="create"></ion-icon>
-          <!-- <img src="/assets/icon/favicon.png">  -->
-        </ion-button>
-      </ion-row>
-      </ion-row>
-    </div>
-
   </ion-toolbar>
-
-
-
-  <ion-row>
-    <ion-col text-start padding-top>
-    <!--    <ion-title>Google Map</ion-title>  -->
-    </ion-col>
-    <ion-col text-end>
-      <ion-button (click)="loadMap()" shape="round" fill="outline">
-        <ion-icon slot="start" name="locate"></ion-icon>
-        Where I Am
-      </ion-button>
-    </ion-col>
-  </ion-row>
 </ion-header>
 
 <ion-content padding>
-  <div class="map-wrapper">
-    <div id="map_center">
-      <img src="../../assets/icon/center_marker.png" />
-    </div>
-    <div #map id="map"></div>
-  </div>
-  <div id="address">
-    <span>{{address}}</span>
-  </div>
+<<<<<<< HEAD
+  <div class="cards">
+  <ion-col nowrap align-items-start>
 
+    <ion-card (click)="goInfoPost()">  <!--href="/info-post"-->
+=======
+  <ion-col nowrap align-items-start class="cardCol">
+    <ion-card id="ioncard1" (click)="goInfoPost()">  <!--href="/info-post"-->
+>>>>>>> fc905615265309aa52573ac4dee94ee6866b12a7
+    <ion-card-header> <!--[routerLink]="['/info-post']"  routerDirection="forward"-->   <!--routerLink="/app/pages/info-post/{{info-post.id}}"-->
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>My rides</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <!-- <img src="/assets/icon/favicon.png">  --> 
+    </ion-card-content>
+  </ion-card>
 
-
-
-
-
+  <ion-card id="ioncard2" (click)="goInfoSearch()">
+    <ion-card-header>
+      <ion-card-subtitle>searching for a ride</ion-card-subtitle>
+      <ion-card-title>search</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <!-- <img src="/assets/icon/favicon.png">  --> 
+      </ion-card-content>
+  </ion-card>
+  
+</ion-col>
+</div>
+  <!--
+    <ion-card class="welcome-card">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Get Started</ion-card-subtitle>
+        <ion-card-title>Welcome to Ionic</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Resources</ion-label>
+      </ion-list-header>
+      <ion-item href="https://beta.ionicframework.com/docs/">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Ionic Documentation</ion-label>
+      </ion-item>
+      <ion-item href="https://beta.ionicframework.com/docs/building/scaffolding">
+        <ion-icon slot="start" color="medium" name="build"></ion-icon>
+        <ion-label>Scaffold Out Your App</ion-label>
+      </ion-item>
+      <ion-item href="https://beta.ionicframework.com/docs/layout/structure">
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label>Change Your App Layout</ion-label>
+      </ion-item>
+      <ion-item href="https://beta.ionicframework.com/docs/theming/basics">
+        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+        <ion-label>Theme Your App</ion-label>
+      </ion-item>
+    </ion-list>
+    -->
 
 </ion-content>
