@@ -36,6 +36,11 @@ export class AppComponent {
       title: 'login',
       url: '/login',
       icon: 'key'
+    },
+    {
+      title: 'map',
+      url: '/map',
+      icon: 'key'
     }
   ];
 

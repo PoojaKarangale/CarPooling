@@ -8,8 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ModalPageModule } from './pages/modal/modal.module';
-import { PopoverPageModule } from './pages/popover/popover.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment'
@@ -20,7 +18,7 @@ import { HomePage } from './pages/home/home.page';
 
 @NgModule({
   declarations: [AppComponent
-  
+
   ],
   entryComponents: [
   ],
@@ -28,8 +26,6 @@ import { HomePage } from './pages/home/home.page';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    ModalPageModule,
-    PopoverPageModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
@@ -40,4 +36,4 @@ import { HomePage } from './pages/home/home.page';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

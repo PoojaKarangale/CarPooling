@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { ModalController, NavController, LoadingController } from '@ionic/angular';
-import { ModalPage } from '../modal/modal.page';
+
 import { TodoService, Todo } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
 

@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'info-post', loadChildren: './pages/info-post/info-post.module#InfoPostPageModule' },
   { path: 'info-search', loadChildren: './pages/info-search/info-search.module#InfoSearchPageModule' },
-  { path: 'info-search/:id', loadChildren: './pages/info-search/info-search.module#InfoSearchPageModule' }
+  { path: 'info-search/:id', loadChildren: './pages/info-search/info-search.module#InfoSearchPageModule' },
+  { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' }
+
 ];
 
 @NgModule({
