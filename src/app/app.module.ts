@@ -28,6 +28,7 @@ import { HomePage } from './pages/home/home.page';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
+    
   ],
   providers: [
     StatusBar,

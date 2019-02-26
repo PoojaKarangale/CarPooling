@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { ModalController, NavController, LoadingController } from '@ionic/angular';
+import { ModalController, NavController, LoadingController, MenuController } from '@ionic/angular';
 
 import { TodoService, Todo } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
+import { MenuControllerI } from '@ionic/core';
 
 @Component({
   selector: 'app-login',
@@ -14,27 +15,30 @@ export class LoginPage implements OnInit {
   todo: Todo = {
     task: 'Your ride',
     createAt: new Date().getTime(),
-    priority: new Date().getTime(),
-    name:'',
-    lastName:'',
-    gender:'',
-    email:'',
+    priority: null,
+
+    name:null,
+    lastName:null,
+    gender:null,
+    email:null,
     mobile: null,
 
-  start:'',
-  end:'',
+  start:null,
+  end:null,
   timing:null,
   vehical:null,
   seat:null,
   }
   todoId = null;
+  isenabled:boolean=false;
   
 
   constructor(private todoService: TodoService,
               private route: ActivatedRoute,
               private loadingController: LoadingController,
                private modalCtr:ModalController,
-              private nav:NavController ) { }
+              private nav:NavController ,
+              private menuCtrl:MenuController) { }
 /*
   async openModal(){
     const modal= await this.modalCtr.create({
@@ -46,12 +50,32 @@ export class LoginPage implements OnInit {
     });
    return await modal.present();
   }*/
+  ionViewWillEnter() {
 
+    this.menuCtrl.swipeEnable(false)
+ }
+/*
+  ionViewDidLeave() {
+
+
+    this.menuCtrl.swipeEnable(true)
+ }*/
   ngOnInit() {
+    this.menuCtrl.swipeEnable(false)
     this.todoId = this.route.snapshot.params['id'];
     if (this.todoId) {
       this.loadTodo();
     }
+    /*
+    if(this.todo.mobile !== null){
+      //enable the button
+      this.isenabled=true; 
+      }else{
+      //disable the button
+      this.isenabled=false;
+      }
+      */
+   // this.enable();
   }
 
   async loadTodo() {
@@ -84,7 +108,6 @@ export class LoginPage implements OnInit {
 
   }
 
-  
 
 
 }

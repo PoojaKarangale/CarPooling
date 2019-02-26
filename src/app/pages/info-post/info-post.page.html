@@ -1,14 +1,30 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title text-capitalize>infoPost</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-title text-capitalize>infoPost</ion-title>
+
+    <!--     <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-back-button>
+      </ion-buttons>
+   -->
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+ <!--
+<ng-container ngIf="!todos || todos.length==0">
+  <div *ngFor="let n of [0,1,2]" padding>
+    <ion-skeleton-text></ion-skeleton-text>
+    <p>
+      <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+    </p>
+  </div>
+</ng-container> -->
 
   <ion-list>
     <ion-item-sliding *ngFor="let item of todos">
@@ -29,19 +45,10 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <!--
-<ng-container ngIf="!todos || todos.length==0">
-  <div *ngFor="let n of [0,1,2]" padding>
-    <ion-skeleton-text></ion-skeleton-text>
-    <p>
-      <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
-    </p>
-  </div>
-</ng-container> -->
-
-  <ion-fab bottom right edge vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success" bottom right edge size="small" fill="outline" routerLink="/info-search" id="button"
-      routerDirection="forward">
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button fill="outline" routerLink="/info-search">  <!-- bottom right edge size="small" fill="outline" routerLink="/info-search" id="button"
+      routerDirection="forward" -->
       <ion-icon ion-fab name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

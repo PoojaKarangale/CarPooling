@@ -1,11 +1,19 @@
 <ion-header>
   <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <!---    <ion-buttons slot="start">
+          <ion-menu-toggle>
+            <ion-button>
+              <ion-icon slot="icon-only" name="menu"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons> --> 
 
     <div>
       <ion-row nowrap align-items-start>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+       
         <ion-title>
           CarPooling
         </ion-title>
@@ -13,32 +21,15 @@
         <ion-row nowrap align-items-start>
           <ion-button slot="end" (click)="goInfoPost()">
             <ion-icon name="albums"></ion-icon>
-            <!-- <img src="/assets/icon/favicon.png">  -->
           </ion-button>
           <ion-button slot="end" (click)="goInfoSearch()">
             <ion-icon name="create"></ion-icon>
-            <!-- <img src="/assets/icon/favicon.png">  -->
           </ion-button>
         </ion-row>
       </ion-row>
     </div>
 
   </ion-toolbar>
-
-  <!-- 
-
-  <ion-row>
-    <ion-col text-start padding-top>
-      
-    </ion-col>
-    <ion-col text-end>
-      <ion-button (click)="loadMap()" shape="round" fill="outline">
-        <ion-icon slot="start" name="locate"></ion-icon>
-        Where I Am
-      </ion-button>
-    </ion-col>
-  </ion-row>
--->
 
 </ion-header>
 
