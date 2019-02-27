@@ -1,3 +1,4 @@
+/* 
 div{
     margin: 0;
     padding: 0;
@@ -99,4 +100,104 @@ border-color: #14532e;
 {
  // background: black !important;
     color:white;
+}
+*/
+.mandatory-indicator{
+    color: red;
+
+}
+ion-card{
+    position: absolute;
+   // padding: 20px;
+  // mask-position: 20;
+  display: block;
+    height: 75%;
+    top: 17%;
+   left: 12%;
+   bottom: 10%;
+   right: 10%;
+    width: 70%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  
+}
+
+.bg{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(160deg,#b67f2b 30%,#cc0808 70%);
+}
+.head{
+    position: absolute;
+    display: block;
+    color: white;
+    top: 75%;
+    padding-top: 5px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    //word-wrap: none;
+    width: 100%;
+}
+.head h1{
+    padding-top: 2px;
+    font-size: 5vh!important;
+    font-weight: lighter!important;
+    font-family:monospace;
+    
+}
+.head h5{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   // padding-top: 2px;
+   // padding-bottom: 2px;
+    font-weight: 200;
+    font-size: 2vh;
+}
+.inputs{
+   position: absolute;
+   display: block;
+   top: 55%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 80%;
+color: #fff;
+opacity: 0.6;
+}
+ion-item {
+ // background: transparent!important;
+ --background: transparent;
+
+--ion-color-base: transparent !important;
+  //border-color: rgba(0, 0, 0, 0)!important;
+//	background-color: rgba(0, 0, 0, 0)!important;
+  //border: 2px solid white!important;
+    ion-input {
+        color:#fff;
+    }
+    ion-label {
+        color:#fff!important;
+    }
+    .item-inner {
+        border: 0!important;
+    }
+}
+button{
+   // position: absolute;
+   
+   position: relative;
+  // padding-top: 5px;
+    //display: block;
+    top: 40%;
+    margin-top: 20px;
+    background: white!important;
+    border:none;
+    box-shadow: 15px;
+    box-direction:lighter;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-sizing: border-box;
+width: 50%;
+//border: solid #5B6DCD 10px;
+//padding: 2px;
+    color:#110a4e!important;
+    padding:2px 2px 2px 2px;
+    font-size: 20px;
+
 }

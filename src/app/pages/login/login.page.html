@@ -4,8 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div class="box">
+<ion-content text-center fullscreen>
+  <div class="bg">
+  <ion-card>
+      
+    <ion-card-header>
+  
+    <div class="head" text-center>
+      <h1>App Name</h1>
+      <h5>An carpooling application</h5>
+      </div>
+    </ion-card-header>
     <!--  
   <ion-button (click)="openModal()">modal</ion-button>  
   <ion-list lines="full" method="post">9
@@ -16,29 +25,30 @@
     </ion-item>
     -->
     <!--    <form (ngSubmit)="logForm()" class="box">  -->
-    <ion-item class="name1">
-      <ion-label>Name<label class="mandatory-indicator">*</label></ion-label>
+     <div class="inputs">
+    <ion-item>
+      <ion-label>Name&nbsp;<label class="mandatory-indicator">*</label></ion-label>
       <ion-input required type="text" size="20" placeholder="FirstName" [(ngModel)]="todo.name"></ion-input>
     </ion-item>
-
-    <ion-item class="name1">
-      <ion-label>Last name&nbsp;</ion-label>
+  
+    <ion-item>
+      <ion-label>Last name&nbsp;<label class="mandatory-indicator">*</label></ion-label>
       <ion-input required type="text" size="20" name="" placeholder="LastName" [(ngModel)]="todo.lastName">
       </ion-input>
     </ion-item>
 
 
-    <ion-radio-group>
+    <ion-radio-group><ion-item>
       <ion-list-header [(ngModel)]="todo.gender">
-        <ion-label id="name1">Gender</ion-label>
-      </ion-list-header>
+        <ion-label>Gender&nbsp;<label class="mandatory-indicator">*</label></ion-label>
+      </ion-list-header></ion-item>
 
-      <ion-item class="name1">
+      <ion-item>
         <ion-label>Female</ion-label>
         <ion-radio slot="start" value="Female"></ion-radio>
       </ion-item>
 
-      <ion-item class="name1">
+      <ion-item>
         <ion-label>Male</ion-label>
         <ion-radio slot="start" value="Male"></ion-radio>
       </ion-item>
@@ -58,22 +68,28 @@
       <ion-input required type="text" placeholder="gender" [(ngModel)]="todo.gender"></ion-input>
     </ion-item>
     -->
-    <ion-item class="name1">
-      <ion-label id="name2">E-mail &nbsp;</ion-label>
+    <ion-item>
+      <ion-label>E-mail&nbsp;<label class="mandatory-indicator">*</label></ion-label>
       <ion-input required type="text" name="" placeholder="example@gmail.com" size="20" [(ngModel)]="todo.email">
       </ion-input>
     </ion-item>
 
 
-    <ion-item class="name1">
-      <ion-label id="name2">Mobile Number &nbsp;</ion-label>
+    <ion-item>
+      <ion-label>Mobile Number&nbsp;<label class="mandatory-indicator">*</label></ion-label>
       <ion-input required type="tel" size="20" required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
     </ion-item>
-    <ion-item class="name1">
+  
+  <button ion-button name="" value="Login" (click)="saveTodo()"><b>LOGIN</b></button>
+  <!--  <ion-item>
       <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()" ></ion-input>
     </ion-item>
+    -->
 
     <!--  </form>  [disabled]="!isenabled" -->
 
   </div>
+
+
+</ion-card></div>
 </ion-content>
