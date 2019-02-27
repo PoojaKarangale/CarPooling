@@ -83,8 +83,6 @@
       "cordova-plugin-firebase": {},
       "cordova-plugin-geolocation": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }

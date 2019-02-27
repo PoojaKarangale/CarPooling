@@ -7,42 +7,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
-  <ion-list lines="full">
-    <ion-item>
+<ion-content padding fullscreen>
+    <div class="info_bg">
+  
+    
       <ion-item>
-        <ion-label>Start place</ion-label>
-        <ion-input required type="text" placeholder="start" [(ngModel)]="todo.start"></ion-input>
+        <ion-label>Source&nbsp;</ion-label>
+        <ion-input required type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
         </ion-item>
-    </ion-item>
+    
 
 
-    <ion-item>
+  
       <ion-item>
-        <ion-label>Destination</ion-label>
-        <ion-input required type="text" placeholder="end" [(ngModel)]="todo.end"></ion-input>
-        </ion-item>
-    </ion-item>
+        <ion-label>Destination&nbsp;</ion-label>
+        <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
+      </ion-item>
 
 
-    <ion-item>
+    
       <ion-item>
-        <ion-label>Time</ion-label>
-        <ion-input required type="number" placeholder="timing" [(ngModel)]="todo.timing"></ion-input>
+        <ion-label>Time&nbsp;</ion-label>
+        <ion-input required type="number" placeholder="Ride Time" [(ngModel)]="todo.timing"></ion-input>
        </ion-item>
+    
+
+    <ion-item>
+      <ion-label>Enter Vehicle Number&nbsp;</ion-label>
+      <ion-input required type="number" placeholder="Vehicle Registration Number" [(ngModel)]="todo.vehical"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Enter Vehical number</ion-label>
-      <ion-input required type="number" placeholder="vehical" [(ngModel)]="todo.vehical"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>number of seat</ion-label>
-      <ion-input required type="number" placeholder="seat" [(ngModel)]="todo.seat"></ion-input>
+      <ion-label>Number of Seats&nbsp;</ion-label>
+      <ion-input required type="number" placeholder="Seats Available" [(ngModel)]="todo.seat"></ion-input>
     </ion-item>
 
-  </ion-list>
-  <ion-button expands="full" (click)="saveTodo()">Save</ion-button>
-
+  
+  <ion-button color="white" expands="full" (click)="saveTodo()"><b>SAVE</b></ion-button>
+</div>
 </ion-content>

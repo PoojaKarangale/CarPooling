@@ -40,7 +40,7 @@ export class AppComponent {
     {
       title: 'map',
       url: '/map',
-      icon: 'key'
+      icon: 'globe'
     }
   ];
 
