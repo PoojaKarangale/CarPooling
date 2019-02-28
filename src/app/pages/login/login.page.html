@@ -69,8 +69,11 @@
       <ion-label id="name2">Mobile Number &nbsp;</ion-label>
       <ion-input required type="tel" size="20" required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
     </ion-item>
+  <ion-item>
+    <ion-button ion-button (click)="login()">Login using your phone number</ion-button> </ion-item>
+
     <ion-item class="name1">
-      <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()" ></ion-input>
+      <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()"  ></ion-input>
     </ion-item>
 
     <!--  </form>  [disabled]="!isenabled" -->
