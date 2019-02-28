@@ -1,4 +1,18 @@
 #map {
     height: 100%;
 }
-
+ion-buttons{
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    display: 0;
+}
+ion-searchbar{
+    padding-left: 35px;
+}
+ion-button{
+    //position: absolute;
+    display: block;
+    padding-left:50px;
+    width: 30%;
+}

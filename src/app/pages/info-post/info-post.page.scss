@@ -1,6 +1,7 @@
 .fake-skeleton{
     width: 60%;
 }
+/*
 #button{
     size: 20px;
     shape-margin: 200px;
@@ -29,3 +30,8 @@ ion-fab [right][bottom][edge] {
   .fab {
       
   }
+*/
+ion-fab{
+    color: white;
+    //background: black;
+}

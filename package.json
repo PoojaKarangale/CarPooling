@@ -91,8 +91,6 @@
         "API_VERSION": "v1.0"
       }
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }

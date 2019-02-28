@@ -1,15 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar color="primary">
-   
-    <ion-searchbar id="start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a start"></ion-searchbar>
+    <ion-toolbar color="primary">
+  <ion-buttons slot="start" vertical="top" horizontal="start">
+    <ion-back-button defaultHref="/info-post"></ion-back-button>
+  </ion-buttons>
+ 
+       <ion-searchbar id="start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a start"></ion-searchbar>
     <ion-searchbar id="dest" [(ngModel)]="dec2" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a destination"></ion-searchbar>
     
     <ion-list [hidden]="autocompleteItems.length == 0">
