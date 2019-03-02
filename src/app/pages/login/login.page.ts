@@ -3,7 +3,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { ModalController, NavController, LoadingController, MenuController } from '@ionic/angular';
 
 import { TodoService, Todo } from 'src/app/services/todo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuControllerI } from '@ionic/core';
 
 @Component({
@@ -30,7 +30,6 @@ export class LoginPage implements OnInit {
   seat:null,
   }
   todoId = null;
-  isenabled:boolean=false;
   
 
   constructor(private todoService: TodoService,
@@ -38,7 +37,8 @@ export class LoginPage implements OnInit {
               private loadingController: LoadingController,
                private modalCtr:ModalController,
               private nav:NavController ,
-              private menuCtrl:MenuController) { }
+              private menuCtrl:MenuController,
+              private router:Router) { }
 /*
   async openModal(){
     const modal= await this.modalCtr.create({
@@ -66,17 +66,23 @@ export class LoginPage implements OnInit {
     if (this.todoId) {
       this.loadTodo();
     }
-    /*
-    if(this.todo.mobile !== null){
-      //enable the button
-      this.isenabled=true; 
-      }else{
-      //disable the button
-      this.isenabled=false;
-      }
-      */
-   // this.enable();
   }
+
+  login() {
+    (<any>window).AccountKitPlugin.loginWithPhoneNumber({
+      useAccessToken: true,
+	    defaultCountryCode: "IN",
+	    facebookNotificationsEnabled: true
+    }, (successdata) => {
+      (<any>window).AccountKitPlugin.getAccount((user) => {
+       // this.nav.setRoot('home');
+       this.router.navigateByUrl('/home');
+      })
+      }, (err) => {
+        alert(err);
+    })
+  }
+
 
   async loadTodo() {
     const loading = await this.loadingController.create({
@@ -108,6 +114,7 @@ export class LoginPage implements OnInit {
 
   }
 
+  
 
 
 }
