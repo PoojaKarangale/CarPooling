@@ -1,1 +1,67 @@
+.header{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+}
+.bg_class{
+    
+        --background: linear-gradient(180deg,#b4c7f1 30%, rgb(87, 154, 255) 70%) !important;
+      color:white;
+}
+div{
+    //  background-color: #c2b64e;
+    //  background-size: cover;
+    //  background: linear-gradient(160deg,#e2e2e2e8 30%,#635e5e 70%);
+      width: 100%!important;
+      background-size: cover!important;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+      height: 100%!important;
+  }
+  ion-item{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  .sdes{
+    background: white!important;
+    //border: 15px;
+  
+    box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
+  // size:100%;
+      box-sizing: border-box;
+  width: 100%;
+  border: solid rgb(202, 209, 247) 2px;
+  
+      color:#110a4e!important;
+    display: block;
+     position: relative;
+     
+   
+      font-size: 15px;
+  }
+  .save
+  {
+    background: white!important;
+    //border: 15px;
+  
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+   
+      box-sizing: border-box;
+  width: 20%;
+  border: solid rgb(202, 209, 247) 2px;
+      color:#110a4e!important;
+     position: absolute;
+      font-size: 15px;
+      position: absolute;
+     top:60%;
+     left:40%;
+     right:35% ;
+     padding: 0px;
+
+  }
+  ion-button:click{
+      border:2px solid #85afe6;
+  }

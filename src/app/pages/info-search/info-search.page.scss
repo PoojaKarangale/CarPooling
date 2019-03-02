@@ -1,7 +1,7 @@
 div{
   //  background-color: #c2b64e;
   //  background-size: cover;
-    background: linear-gradient(160deg,#e2e2e2e8 30%,#635e5e 70%);
+    //background: linear-gradient(160deg,#e2e2e2e8 30%,#635e5e 70%);
     width: 100%!important;
     background-size: cover!important;
     margin: 0%;
@@ -59,7 +59,7 @@ ion-button{
       color:#110a4e!important;
      // padding:2px 2px 2px 2px;
      position: absolute;
-     top:60%;
+     top:90%;
      left:40%;
      right:35% ;
      //border: 5px solid #fff;
@@ -69,8 +69,20 @@ ion-button{
       font-size: 15px;
   
 }
-ion-button:hover{
-  color:white!important;
-  background: #036ee9!important;
-  border:2px solid #036ee9!important;
+
+
+
+.header{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+.bg_class{
+  
+      --background: linear-gradient(180deg,#b4c7f1 30%, rgb(87, 154, 255) 70%) !important;
+    color:white;
 }

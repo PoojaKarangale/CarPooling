@@ -3,13 +3,44 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      List
+    <ion-title class="header">
+      Search Your Ride
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="bg_class" padding fullscreen>
+  <div class="info_bg">
+      <ion-item>
+      <ion-button class="sdes" color="white" expands="full" routerLink="/map" ><b>Choose Source and Destination</b></ion-button>
+      </ion-item>
+      <!--
+    <ion-item>
+      <ion-label>Source&nbsp;</ion-label>
+      <ion-input required type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destination&nbsp;</ion-label>
+      <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
+    </ion-item>
+      -->
+    <ion-item>
+      <ion-label>Time&nbsp;</ion-label>
+      <ion-input required type="number" placeholder="Time of Ride" [(ngModel)]="todo.timing"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Seats&nbsp;</ion-label>
+      <ion-input required type="number" placeholder="Seats Required" [(ngModel)]="todo.seat"></ion-input>
+    </ion-item>
+
+    <ion-button color="white" class="save" expands="full" (click)="saveTodo()"><b>SAVE</b></ion-button>
+  </div>
+</ion-content>
+<!--
 <ion-content>
+  
   <ion-list>
     <ion-item *ngFor="let item of items">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
@@ -19,9 +50,10 @@
       </div>
     </ion-item>
   </ion-list>
-  <!--
+  -->
+<!--
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title }}</b>
     </div>
-  -->
-</ion-content>
+ 
+</ion-content> -->
