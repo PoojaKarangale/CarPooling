@@ -12,7 +12,7 @@ import { MenuControllerI } from '@ionic/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  splash: true;
+ // splash: true;
   todo: Todo = {
     task: 'Your ride',
     createAt: new Date().getTime(),
@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
   seat:null,
   }
   todoId = null;
-  static splash: boolean;
+  static splash: boolean=true;
  
   
 

@@ -9,29 +9,26 @@
 
 <ion-content class="bg_class" padding fullscreen>
     <div class="info_bg">
-  
+      
+      <ion-item>
+        <ion-button class="sdes" color="white" expands="full" routerLink="/map" ><b>Choose Source and Destination</b></ion-button>
+        </ion-item>
     
       <ion-item>
         <ion-label>Source&nbsp;</ion-label>
         <ion-input required type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
         </ion-item>
-    
-
-
-  
+      
       <ion-item>
         <ion-label>Destination&nbsp;</ion-label>
         <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
       </ion-item>
-
-
-    
+  
       <ion-item>
         <ion-label>Time&nbsp;</ion-label>
         <ion-input required type="number" placeholder="Ride Time" [(ngModel)]="todo.timing"></ion-input>
        </ion-item>
     
-
     <ion-item>
       <ion-label>Vehicle Number&nbsp;</ion-label>
       <ion-input required type="number" placeholder="Vehicle Number" [(ngModel)]="todo.vehical"></ion-input>

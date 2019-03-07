@@ -62,7 +62,6 @@ export class MapPage implements OnInit {
         });
       });
     // this.selectSearchResult(item);
-
   }
   /*
     selectSearchResult1(item){

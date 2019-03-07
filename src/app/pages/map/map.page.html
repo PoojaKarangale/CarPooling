@@ -1,12 +1,15 @@
 <ion-header>
-    <ion-toolbar color="primary">
-  <ion-buttons slot="start" vertical="top" horizontal="start">
-    <ion-back-button defaultHref="/info-post"></ion-back-button>
-  </ion-buttons>
- 
-       <ion-searchbar id="start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a start"></ion-searchbar>
-    <ion-searchbar id="dest" [(ngModel)]="dec2" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a destination"></ion-searchbar>
-    
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" vertical="top" horizontal="start">
+      <ion-back-button defaultHref="/info-post"></ion-back-button>
+    </ion-buttons>
+
+    <ion-searchbar id="start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()"
+      placeholder="Search for a start"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+
+    <ion-searchbar id="dest" [(ngModel)]="dec2" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()"
+      placeholder="Search for a destination"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+
     <ion-list [hidden]="autocompleteItems.length == 0">
         <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
           {{ item.description }}
@@ -27,4 +30,4 @@
     </ion-item>
   </ion-list>
 
- </ion-content>
+</ion-content>
