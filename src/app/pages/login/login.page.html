@@ -1,14 +1,11 @@
-
 <ion-content fullscreen>
-   
-  <div class="bg">
-      <ion-grid>
-            <ion-card>
-              
-              <ion-col>
-   
 
-     <!-- 
+  <div class="bg">
+    <ion-grid>
+      <ion-card>
+        <ion-col>
+
+          <!-- 
     <ion-card-header>
       <div class="head" text-center>
       <h1>CarPooling</h1>
@@ -16,7 +13,7 @@
       </div>
     </ion-card-header>
   -->
-    <!--  
+          <!--  
   <ion-button (click)="openModal()">modal</ion-button>  
   <ion-list lines="full" method="post">9
     
@@ -25,34 +22,34 @@
       <ion-input type="text" placeholder="task" [(ngModel)]="todo.task"></ion-input>
     </ion-item>
     -->
-    <!--    <form (ngSubmit)="logForm()" class="box">  -->
-   <!--   <div class="inputs"> -->
-      
-    <div class="inputs"> 
-      
-      <ion-row>
-    <ion-item>
-      <ion-label>First Name&nbsp;<label class="mandatory-indicator">*</label></ion-label>
-   <ion-input required type="text" placeholder="FirstName" [(ngModel)]="todo.name"></ion-input>
-    </ion-item>
-  </ion-row>
-  
-    <ion-row>
-    <ion-item>
-      <ion-label>Last name&nbsp;<label class="mandatory-indicator">*</label></ion-label> 
-         <ion-input required type="text" name="" placeholder="LastName" [(ngModel)]="todo.lastName">
-      </ion-input>
-    </ion-item>
-  </ion-row>
+          <!--    <form (ngSubmit)="logForm()" class="box">  -->
+          <!--   <div class="inputs"> -->
 
-  <ion-row>
-    <ion-radio-group>
+          <div class="inputs">
+
+            <ion-row>
+              <ion-item>
+                <ion-label>First Name&nbsp;<label class="mandatory-indicator">*</label></ion-label>
+                <ion-input required type="text" placeholder="FirstName" [(ngModel)]="todo.name"></ion-input>
+              </ion-item>
+            </ion-row>
+
+            <ion-row>
+              <ion-item>
+                <ion-label>Last name&nbsp;<label class="mandatory-indicator">*</label></ion-label>
+                <ion-input required type="text" name="" placeholder="LastName" [(ngModel)]="todo.lastName">
+                </ion-input>
+              </ion-item>
+            </ion-row>
+
+            <!--  <ion-row>
+   <ion-radio-group>
       <ion-row>
       <ion-list-header [(ngModel)]="todo.gender"><ion-item><ion-label>Gender</ion-label></ion-item>
       </ion-list-header></ion-row>
    
       <ion-row>
-      <ion-item id="gender">
+       <ion-item id="gender">
         <ion-label>Female</ion-label>
         <ion-radio slot="start" value="Female"></ion-radio>
       </ion-item>
@@ -63,51 +60,52 @@
         <ion-radio slot="start" value="Male"></ion-radio>
       </ion-item></ion-row>
       
-    </ion-radio-group>
-  </ion-row>
-  
-    <!--
-    <ion-item>
-      <ion-label>Gender</ion-label>
-      <ion-select placeholder="Select Gender" [(ngModel)]="todo.gender">
-        <ion-select-option value="female">Female</ion-select-option>
-        <ion-select-option value="male">Male</ion-select-option>
-      </ion-select>
-    </ion-item>
-  -->
-    <!--  
+    </ion-radio-group> -->
+
+            <ion-row>
+              <ion-item>
+                <ion-label>Gender</ion-label>
+                <ion-select placeholder="" [(ngModel)]="todo.gender">
+                  <ion-select-option value="female">Female</ion-select-option>
+                  <ion-select-option value="male">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-row>
+            <!--  
     <ion-item>
         <ion-label>Gender</ion-label>
       <ion-input required type="text" placeholder="gender" [(ngModel)]="todo.gender"></ion-input>
     </ion-item>
     -->
-    <ion-row>
-    <ion-item>
-       <ion-label>E-mail&nbsp;<label class="mandatory-indicator">*</label></ion-label>
-        <ion-input required type="text" name="" placeholder="example@gmail.com" size="20" [(ngModel)]="todo.email"> 
-      </ion-input>
-    </ion-item>
-  </ion-row>
-    <ion-row>
-    <ion-item>
-       <ion-label>Mobile&nbsp;<label class="mandatory-indicator">*</label></ion-label>
-         <ion-input autofocus required type="tel"  required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
-    </ion-item>
-  </ion-row>
-  <ion-row>
-      <ion-button name="" value="Login" (click)="saveTodo()" shape="round"><b>LOGIN</b></ion-button>
-     </ion-row>
- <!-- <ion-row>
+            <ion-row>
+              <ion-item>
+                <ion-label>E-mail&nbsp;<label class="mandatory-indicator">*</label></ion-label>
+                <ion-input required type="text" name="" placeholder="example@gmail.com" size="20" [(ngModel)]="todo.email">
+                </ion-input>
+              </ion-item>
+            </ion-row>
+
+            <ion-row>
+              <ion-item>
+                <ion-label>Mobile&nbsp;<label class="mandatory-indicator">*</label></ion-label>
+                <ion-input autofocus required type="tel" required placeholder="mobile" [(ngModel)]="todo.mobile"></ion-input>
+              </ion-item>
+            </ion-row>
+            
+            <ion-row>
+              <ion-button name="" value="Login" (click)="saveTodo()" shape="round"><b>LOGIN</b></ion-button>
+            </ion-row>
+            <!-- <ion-row>
       <ion-button (click)="login()">Login using your phone number</ion-button>
     </ion-row>
     <ion-row>
         <button ion-button name="" value="Login" (click)="saveTodo()"><b>LOGIN</b></button>
        </ion-row>-->
-      </div></ion-col>
-    
-</ion-card>
+          </div>
+        </ion-col>
+      </ion-card>
 
-  <!--
+      <!--
 <ion-row>
 
   
@@ -115,17 +113,15 @@
       <ion-input type="submit" expands="full" name="" value="Login" (click)="saveTodo()" ></ion-input>
     </ion-item>
     -->
-
-    <!--  </form>  [disabled]="!isenabled" -->
- <!--  </div> -->
-<!--
+      <!--  </form>  [disabled]="!isenabled" -->
+      <!--  </div> -->
+      <!--
 <ion-row>
 <ion-button (click)="send()">send otp</ion-button> 
 <ion-input type="text" placeholder="enter otp" [(ngModel)]="code"></ion-input>
 <ion-button (click)="verify()">verify</ion-button>
 </ion-row>-->
 
-</ion-grid>
- 
-</div> 
+    </ion-grid>
+  </div>
 </ion-content>
