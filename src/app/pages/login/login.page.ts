@@ -12,6 +12,7 @@ import { MenuControllerI } from '@ionic/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  splash: true;
   todo: Todo = {
     task: 'Your ride',
     createAt: new Date().getTime(),
@@ -30,6 +31,8 @@ export class LoginPage implements OnInit {
   seat:null,
   }
   todoId = null;
+  static splash: boolean;
+ 
   
 
   constructor(private todoService: TodoService,
@@ -39,6 +42,14 @@ export class LoginPage implements OnInit {
               private nav:NavController ,
               private menuCtrl:MenuController,
               private router:Router) { }
+
+              ionViewDidLoad(){
+    
+                setTimeout(()=>{
+                  LoginPage.splash=false;
+            
+                },4000);
+              }
 /*
   async openModal(){
     const modal= await this.modalCtr.create({

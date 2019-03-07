@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
     private router: Router
   ) {
   }
+  
   ngOnInit(){}
   /*
   ngOnInit() {
