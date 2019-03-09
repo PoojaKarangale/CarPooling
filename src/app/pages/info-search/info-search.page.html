@@ -3,43 +3,43 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/info-post"></ion-back-button>
     </ion-buttons>
-    <ion-title class="header">Post Your Ride</ion-title>
+    <ion-title class="header">OFFER RIDE</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bg_class" padding fullscreen>
     <div class="info_bg">
       
-      <ion-item>
+      <ion-item lines="none">
         <ion-button class="sdes" color="white" expands="full" routerLink="/map" ><b>Choose Source and Destination</b></ion-button>
         </ion-item>
     
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Source&nbsp;</ion-label>
-        <ion-input required type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
+        <ion-input class="placeholder-text" requiredrequired type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
         </ion-item>
       
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Destination&nbsp;</ion-label>
-        <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
+        <ion-input class="placeholder-text" required required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
       </ion-item>
   
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Time&nbsp;</ion-label>
-        <ion-input required type="number" placeholder="Ride Time" [(ngModel)]="todo.timing"></ion-input>
+        <ion-input class="placeholder-text" required required type="number" placeholder="Ride Time" [(ngModel)]="todo.timing"></ion-input>
        </ion-item>
     
-    <ion-item>
+    <ion-item lines="none">
       <ion-label>Vehicle Number&nbsp;</ion-label>
-      <ion-input required type="number" placeholder="Vehicle Number" [(ngModel)]="todo.vehical"></ion-input>
+      <ion-input class="placeholder-text" required required type="number" placeholder="Vehicle Number" [(ngModel)]="todo.vehical"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none">
       <ion-label>Number of Seats&nbsp;</ion-label>
-      <ion-input required type="number" placeholder="Seats Available" [(ngModel)]="todo.seat"></ion-input>
+      <ion-input class="placeholder-text" required required type="number" placeholder="Seats Available" [(ngModel)]="todo.seat"></ion-input>
     </ion-item>
 
   
-  <ion-button color="white" expands="full" (click)="saveTodo()"><b>SAVE</b></ion-button>
+  <ion-button class="save" color="white" expands="full" (click)="saveTodo()"><b>SAVE</b></ion-button>
 </div>
 </ion-content>

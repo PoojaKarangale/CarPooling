@@ -22,7 +22,7 @@
       <ion-content no-border>
           <div style = "color : rgb(234, 244, 245); width:100%; height : 100%">
      
-        <ion-list no-border>
+        <ion-list lines="none">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

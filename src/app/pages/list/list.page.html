@@ -4,14 +4,14 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title class="header">
-      Search Your Ride
+     REQUEST RIDE
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bg_class" padding fullscreen>
   <div class="info_bg">
-      <ion-item>
+      <ion-item lines="none">
       <ion-button class="sdes" color="white" expands="full" routerLink="/map" ><b>Choose Source and Destination</b></ion-button>
       </ion-item>
       <!--
@@ -25,14 +25,14 @@
       <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
     </ion-item>
       -->
-    <ion-item>
+    <ion-item required lines="none">
       <ion-label>Time&nbsp;</ion-label>
-      <ion-input required type="number" placeholder="Time of Ride" [(ngModel)]="todo.timing"></ion-input>
+      <ion-input class="placeholder-text" required type="number" placeholder="Time of Ride" [(ngModel)]="todo.timing"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item required lines="none">
       <ion-label>Seats&nbsp;</ion-label>
-      <ion-input required type="number" placeholder="Seats Required" [(ngModel)]="todo.seat"></ion-input>
+      <ion-input class="placeholder-text"  required type="number" placeholder="Seats Required" [(ngModel)]="todo.seat"></ion-input>
     </ion-item>
 
     <ion-button color="white" class="save" expands="full" (click)="saveTodo()"><b>SAVE</b></ion-button>

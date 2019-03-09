@@ -97,7 +97,7 @@ export class LoginPage implements OnInit {
 
   async loadTodo() {
     const loading = await this.loadingController.create({
-      message: 'Loading Todo..'
+      message: ''
     });
     await loading.present();
     this.todoService.getTodo(this.todoId).subscribe(rec => {
@@ -107,7 +107,7 @@ export class LoginPage implements OnInit {
   }
   async saveTodo() {
     const loading = await this.loadingController.create({
-      message: 'saving TodoService..'
+      message: ''
     });
     await loading.present();
 
