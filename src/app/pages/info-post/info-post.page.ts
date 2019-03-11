@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Todo, TodoService } from 'src/app/services/todo.service';
+import { Post, TodoService } from 'src/app/services/todo.service';
 import { NavController, ModalController, PopoverController, LoadingController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'Firebase';
@@ -11,7 +11,7 @@ import * as firebase from 'Firebase';
   styleUrls: ['./info-post.page.scss'],
 })
 export class InfoPostPage implements OnInit {
-  todos: Todo[];
+  posts: Post[];
 
   /*
   todo: Todo = {
@@ -59,8 +59,8 @@ export class InfoPostPage implements OnInit {
   */
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe(res => {
-      this.todos = res;
+    this.todoService.getPosts().subscribe(res => {
+      this.posts = res;
     });
   }
 
@@ -85,7 +85,7 @@ export class InfoPostPage implements OnInit {
         text: 'Okay',
         handler: () => {
           //firebase.database().ref(item.id).remove();
-          this.todoService.removeTodo(item.id);
+          this.todoService.removePost(item.id);
         }
       }
     ]

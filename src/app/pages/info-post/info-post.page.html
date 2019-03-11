@@ -27,12 +27,14 @@
 </ng-container> -->
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of todos">
+    <ion-item-sliding *ngFor="let item of posts">
       <ion-item lines="inset" button [routerLink]="['/info-search',item.id]">
         <ion-label>
-          {{ item.task }}
+          {{ item.start }}
+          
+          {{ item.end }}
           <p>
-            {{item.createAt | date:'short'}}
+            {{item.time | date:'short'}}
           </p>
         </ion-label>
         <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>

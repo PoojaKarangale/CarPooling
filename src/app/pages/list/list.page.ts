@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { NavController, NavParams, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
-import { Todo, TodoService } from 'src/app/services/todo.service';
+import { Search, TodoService } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
+import { ViewChild, ElementRef } from '@angular/core';
+
+declare var google;
 
 @Component({
   selector: 'app-list',
@@ -10,23 +13,34 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  todo: Todo = {
-    task: 'your ride',
-    createAt: new Date().getTime(),
-    priority: null,
-    name: null,
-    lastName: null,
-    gender: null,
-    email: null,
-    mobile: null,
-
+  search: Search = {
     start: null,
     end: null,
-    timing: null,
-    vehical: null,
-    seat: null,
+    time: null,
+    date:null,
+     
   }
-  todoId = null;
+  searchId = null;
+
+  
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+  GoogleAutocomplete: any;
+  autocomplete: { input: string; };
+  autocomplete2: { input: string; };
+  myLocation: any;
+  autocompleteItems: any[];
+  autocompleteItems2: any[];
+  zone: any;
+  geocoder: any;
+  markers: any;
+  geolocation: any;
+  GooglePlaces: any;
+  nearbyItems: any[];
+  places: any;
+
+  dec1: any
+  dec2: any
   /*
   private selectedItem: any;
   private icons = [
@@ -44,51 +58,101 @@ export class ListPage implements OnInit {
   public items: Array<{ title: string; note: string; icon: string }> = [];
   */
 
-
-  constructor(private todoService: TodoService,
+constructor(private todoService: TodoService,
     private route: ActivatedRoute,
+    private ngZone: NgZone,
     private loadingController: LoadingController,
     private nav: NavController) {
-    /*
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }*/
+    this.geocoder = new google.maps.Geocoder;
+    this.markers = [];
+    this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
+    this.autocomplete = { input: '' };
+    this.autocompleteItems = [];
+    this.autocomplete2 = { input: '' };
+    this.autocompleteItems2 = [];
   }
+
 
   ngOnInit() {
-    this.todoId = this.route.snapshot.params['id'];
-    if (this.todoId) {
-      this.loadTodo();
+    this.searchId = this.route.snapshot.params['id'];
+    if (this.searchId) {
+      this.loadSearch();
     }
+    this.updateSearchResults();
+    this.updateSearchResults2();
   }
 
-  async loadTodo() {
+  updateSearchResults() {
+    if (this.autocomplete.input == '') {
+      this.autocompleteItems = [];
+      return;
+    }
+    this.GoogleAutocomplete.getPlacePredictions({ input: this.autocomplete.input },
+      (predictions, status) => {
+        this.autocompleteItems = [];
+        this.ngZone.run(() => {
+          predictions.forEach((prediction) => {
+            this.autocompleteItems.push(prediction);
+          });
+        });
+      });
+    // this.selectSearchResult(item);
+  }
+
+  updateSearchResults2() {
+    if (this.autocomplete2.input == '') {
+      this.autocompleteItems2 = [];
+      return;
+    }
+    this.GoogleAutocomplete.getPlacePredictions({ input: this.autocomplete2.input },
+      (predictions, status) => {
+        this.autocompleteItems2 = [];
+        this.ngZone.run(() => {
+          predictions.forEach((prediction) => {
+            this.autocompleteItems2.push(prediction);
+          });
+        });
+      });
+    // this.selectSearchResult(item);
+  }
+  selectSearchResult(item) {
+    // this.clearMarkers();
+    this.autocompleteItems = [];
+     this.search.start=item.description;
+    //this.dec1=item;
+   
+  }
+
+  selectSearchResult2(item) {
+    // this.clearMarkers();
+    this.autocompleteItems2 = [];
+     this.search.end=item.description;
+    //this.dec1=item;
+    
+  }
+  async loadSearch() {
     const loading = await this.loadingController.create({
       message: ''
     });
     await loading.present();
-    this.todoService.getTodo(this.todoId).subscribe(rec => {
+    this.todoService.getSearch(this.searchId).subscribe(rec => {
       loading.dismiss();
-      this.todo = rec;
+      this.search = rec;
     });
   }
-  async saveTodo() {
+  async saveSearch() {
     const loading = await this.loadingController.create({
       message: ''
     });
     await loading.present();
 
-    if (this.todoId) {
-      this.todoService.updateTodo(this.todo, this.todoId).then(() => {
+    if (this.searchId) {
+      this.todoService.updateSearch(this.search, this.searchId).then(() => {
         loading.dismiss();
         this.nav.navigateForward('/info-post');
       });
     } else {
-      this.todoService.addTodo(this.todo).then(() => {
+      this.todoService.addSearch(this.search).then(() => {
         loading.dismiss();
         this.nav.navigateForward('/info-post');
       });

@@ -13,8 +13,10 @@ export class MapPage implements OnInit {
   map: any;
   GoogleAutocomplete: any;
   autocomplete: { input: string; };
+  autocomplete2: { input: string; };
   myLocation:any;
   autocompleteItems: any[];
+  autocompleteItems2: any[];
   zone: any;
   geocoder: any;
   markers: any;
@@ -25,10 +27,12 @@ export class MapPage implements OnInit {
 
   dec1:any
   dec2:any
+  
 
   constructor(
     private ngZone: NgZone
   ) {
+    
     this.geocoder = new google.maps.Geocoder;
     this.markers = [];
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
@@ -44,7 +48,7 @@ export class MapPage implements OnInit {
       zoom: 15
     });
     this.updateSearchResults();
-
+    //this.updateSearchResults2();
   }
 
   updateSearchResults() {
@@ -58,6 +62,22 @@ export class MapPage implements OnInit {
         this.ngZone.run(() => {
           predictions.forEach((prediction) => {
             this.autocompleteItems.push(prediction);
+          });
+        });
+      });
+    // this.selectSearchResult(item);
+  }
+  updateSearchResults2() {
+    if (this.autocomplete2.input == '') {
+      this.autocompleteItems2 = [];
+      return;
+    }
+    this.GoogleAutocomplete.getPlacePredictions({ input: this.autocomplete2.input },
+      (predictions, status) => {
+        this.autocompleteItems2 = [];
+        this.ngZone.run(() => {
+          predictions.forEach((prediction) => {
+            this.autocompleteItems2.push(prediction);
           });
         });
       });
@@ -87,10 +107,32 @@ export class MapPage implements OnInit {
       })
     }
   */
+ 
   selectSearchResult(item) {
     // this.clearMarkers();
     this.autocompleteItems = [];
-    
+   // this.dec1=item.description;
+    //this.dec1=item;
+    this.geocoder.geocode({ 'placeId': item.place_id }, (results, status) => {
+      if (status === 'OK' && results[0]) {
+        let position = {
+          lat: results[0].geometry.location.lat,
+          lng: results[0].geometry.location.lng
+        };
+        let marker = new google.maps.Marker({
+          position: results[0].geometry.location,
+          map: this.map,
+        });
+        this.markers.push(marker);
+        this.map.setCenter(results[0].geometry.location);
+      }
+    })
+  }
+
+  selectSearchResult2(item) {
+    // this.clearMarkers();
+    this.autocompleteItems2 = [];
+  //  this.dec2=item.description;
     //this.dec1=item;
     this.geocoder.geocode({ 'placeId': item.place_id }, (results, status) => {
       if (status === 'OK' && results[0]) {
