@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title class="header">
-     REQUEST RIDE
+      REQUEST RIDE
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,44 +12,44 @@
 <ion-content class="bg_class" padding fullscreen>
   <div class="info_bg">
 
-      <ion-item lines="none">
-          <ion-col>
-            <ion-row>
-              <ion-searchbar id="start" [(ngModel)]="search.start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input"
-                (ionInput)="updateSearchResults()" placeholder="Search for a start" [showCancelButton]="shouldShowCancel"></ion-searchbar>
-            </ion-row>
-            
-            <ion-row>
-              <ion-list [hidden]="autocompleteItems.length == 0">
-                <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
-                  {{ item.description }}
-                </ion-item>
-              </ion-list>
-            </ion-row>
-          </ion-col>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-col>
-            <ion-row>
-              <ion-searchbar id="dest" [(ngModel)]="search.end" [(ngModel)]="dec2" [(ngModel)]="autocomplete2.input"
-                (ionInput)="updateSearchResults2()" placeholder="Search for a destination" [showCancelButton]="shouldShowCancel"></ion-searchbar>
-            </ion-row>
-            
-            <ion-row>
-              <ion-list [hidden]="autocompleteItems2.length == 0">
-                <ion-item *ngFor="let item of autocompleteItems2" tappable (click)="selectSearchResult2(item)">
-                  {{ item.description }}
-                </ion-item>
-              </ion-list>
-            </ion-row>
-          </ion-col>
-        </ion-item>
-        <!--  
+    <ion-item lines="none">
+      <ion-col>
+        <ion-row>
+          <ion-searchbar id="start" [(ngModel)]="search.start" [(ngModel)]="dec1" [(ngModel)]="autocomplete.input"
+            (ionInput)="updateSearchResults()" placeholder="Search for a start" [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        </ion-row>
+
+        <ion-row>
+          <ion-list [hidden]="autocompleteItems.length == 0">
+            <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+        </ion-row>
+      </ion-col>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-col>
+        <ion-row>
+          <ion-searchbar id="dest" [(ngModel)]="search.end" [(ngModel)]="dec2" [(ngModel)]="autocomplete2.input"
+            (ionInput)="updateSearchResults2()" placeholder="Search for a destination" [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        </ion-row>
+
+        <ion-row>
+          <ion-list [hidden]="autocompleteItems2.length == 0">
+            <ion-item *ngFor="let item of autocompleteItems2" tappable (click)="selectSearchResult2(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+        </ion-row>
+      </ion-col>
+    </ion-item>
+    <!--  
       <ion-item lines="none">
       <ion-button class="sdes" color="white" expands="full" routerLink="/map" ><b>Choose Source and Destination</b></ion-button>
       </ion-item>
       -->
-      <!--
+    <!--
     <ion-item>
       <ion-label>Source&nbsp;</ion-label>
       <ion-input required type="text" placeholder="Source Location" [(ngModel)]="todo.start"></ion-input>
@@ -60,29 +60,30 @@
       <ion-input required type="text" placeholder="Destination" [(ngModel)]="todo.end"></ion-input>
     </ion-item>
       -->
-      <ion-item lines="none">
-          <ion-label>Source&nbsp;</ion-label>
-          <ion-input class="placeholder-text" requiredrequired type="text" placeholder="Source Location" [(ngModel)]="search.start"></ion-input>
-        </ion-item>
-    
-        <ion-item lines="none">
-          <ion-label>Destination&nbsp;</ion-label>
-          <ion-input class="placeholder-text" required required type="text" placeholder="Destination" [(ngModel)]="search.end"></ion-input>
-        </ion-item>
-    
-    <ion-item required lines="none">
-      <ion-label>Time&nbsp;</ion-label>
-      <ion-input class="placeholder-text" required type="number" placeholder="Time of Ride" [(ngModel)]="search.time"></ion-input>
+    <ion-item lines="none">
+      <ion-label>Source&nbsp;</ion-label>
+      <ion-input class="placeholder-text" requiredrequired type="text" placeholder="Source Location" [(ngModel)]="search.start"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Destination&nbsp;</ion-label>
+      <ion-input class="placeholder-text" required required type="text" placeholder="Destination" [(ngModel)]="search.end"></ion-input>
     </ion-item>
 
     <ion-item required lines="none">
-        <ion-label>date&nbsp;</ion-label>
-        <ion-input class="placeholder-text" required type="number" placeholder="date of Ride" [(ngModel)]="search.date"></ion-input>
-      </ion-item>
+      <ion-label>date&nbsp;</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="search.date"></ion-datetime>
+
+   </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Time&nbsp;</ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="search.time"></ion-datetime>
+ </ion-item>
 
     <ion-item required lines="none">
       <ion-label>Seats&nbsp;</ion-label>
-      <ion-input class="placeholder-text"  required type="number" placeholder="Seats Required" [(ngModel)]="search.seat"></ion-input>
+      <ion-input class="placeholder-text" required type="number" placeholder="Seats Required" [(ngModel)]="search.seat"></ion-input>
     </ion-item>
 
     <ion-button color="white" class="save" expands="full" (click)="saveSearch()"><b>SAVE</b></ion-button>

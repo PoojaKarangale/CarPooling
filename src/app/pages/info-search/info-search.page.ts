@@ -16,7 +16,7 @@ export class InfoSearchPage implements OnInit {
  
     start: null,
   end: null,
-  time: new Date().getTime(),
+  time: null,
   date: null,
   seat: null,
   vehicle: null

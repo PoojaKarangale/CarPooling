@@ -17,7 +17,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Search Ride',
       url: '/list',
       icon: 'albums'
     },
@@ -27,7 +27,7 @@ export class AppComponent {
       icon: 'filing'
     },
     {
-      title: 'info-search',
+      title: 'Post Ride',
       url: '/info-search',
       icon: 'analytics'
     }

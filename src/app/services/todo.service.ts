@@ -7,13 +7,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 export interface Todo {
-  
-    name: string;
+
+  name: string;
   lastName: string;
   gender: string;
   email: string;
   mobile: number;
- 
+
 }
 
 export interface Post {
@@ -32,7 +32,7 @@ export interface Search {
   end: string;
   time: number;
   date: number;
-  
+
 
 }
 
@@ -65,7 +65,7 @@ export class TodoService {
       })
     );
 
-       
+
     this.postCollection = db.collection<Post>('posts');
     this.posts = this.postCollection.snapshotChanges().pipe(
       map(actions => {
@@ -77,7 +77,7 @@ export class TodoService {
       })
     );
 
-       
+
     this.searchCollection = db.collection<Search>('searches');
     this.searches = this.searchCollection.snapshotChanges().pipe(
       map(actions => {
@@ -105,6 +105,7 @@ export class TodoService {
     return this.todosCollection.doc(id).delete();
   }
 
+  
   getPosts() {
     return this.posts;
   }
@@ -120,6 +121,7 @@ export class TodoService {
   removePost(id) {
     return this.postCollection.doc(id).delete();
   }
+
 
   getSearches() {
     return this.searches;

@@ -59,13 +59,14 @@
 
     <ion-item required lines="none">
       <ion-label>date&nbsp;</ion-label>
-      <ion-input class="placeholder-text" required type="number" placeholder="date of Ride" [(ngModel)]="post.date"></ion-input>
-    </ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="post.date"></ion-datetime>
+
+   </ion-item>
 
     <ion-item lines="none">
       <ion-label>Time&nbsp;</ion-label>
-      <ion-input class="placeholder-text" required required type="number" placeholder="Ride Time" [(ngModel)]="post.time"></ion-input>
-    </ion-item>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="post.time"></ion-datetime>
+ </ion-item>
 
     <ion-item lines="none">
       <ion-label>Vehicle Number&nbsp;</ion-label>
