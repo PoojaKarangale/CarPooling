@@ -111,3 +111,19 @@ ion-button:click{
   //    --background: linear-gradient(180deg,#edf2fc 30%, rgb(182, 207, 245) 70%) !important;
     color:white;
 }
+
+.placeholder-text{
+
+  font-size: 1.0em;
+  font-weight: 80;
+  font-family:monospace;
+  padding-top:7px;
+  
+  }
+  ion-searchBar{
+  
+    border-left: 3px solid #368cfc;
+background-origin: shadow 20px #0c229e;
+//border-top: 5px solid #0059ff; 
+  }
+ 

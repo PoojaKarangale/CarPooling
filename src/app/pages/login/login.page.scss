@@ -192,7 +192,7 @@ ion-card{
  
     height: 100%;
     width: 100%;text-align: center;
-    background-color: #e4eaf7!important;
+    background-color: #b5ccfd!important;
 }
 
 
@@ -200,26 +200,41 @@ ion-card{
 //card  header code
 .head{
     position: absolute;
-    display: block;
+   // display: block;
     color: rgb(34, 33, 33);
-    top: 50%;
     left: 50%;
     width: 100%;
-    padding-top: 5px;
+   /// padding-top: 15px;
     transform: translate(-50%,-50%);
-    
 }
 .head h1{
-    padding-top: 2px;
-    font-size: 5vh!important;
-    font-weight: lighter!important;
-    font-family:monospace;
+ //margin-top: 15px;
+ //top:50%!important;
+    padding-top: 60px;
+    text-shadow: 2px 2px #20179c;
+    font-size: 10vh!important;
+   // font-weight: lighter!important;
+    font-family: fantasy;
+    color: #1916d1;
+    font-stretch: extra-expanded!important;
+    top: 80%;
+    
+
     
 }
 .head h5{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 200;
+    //font-weight: 200;
     font-size: 2vh;
+    padding-bottom: 50px;
+    padding-top: none!important;
+    padding-left: 20%;
+    padding-bottom: 10px;
+    margin-bottom: 10%;
+    margin-top:  none!important;
+    top: 0%!important;
+    color:#222c83;
+    font-style: oblique;
     
 }
 //card  header code ends
@@ -292,7 +307,7 @@ ion-item{
   block-size: 100%;
 }
 ion-input{
-padding-top: 5px;
+padding-top: 8px;
 //display:block;
 text-size-adjust: ion-label;
 width: 50%;
@@ -324,6 +339,6 @@ ion-label{
 
   font-size: 1.0em;
   font-weight: 100;
-  font-family: 'Courier New', Courier, monospace;
+  font-family:monospace;
   
   }
