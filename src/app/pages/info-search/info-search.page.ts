@@ -19,6 +19,7 @@ export class InfoSearchPage implements OnInit {
   time: null,
   date: null,
   seat: null,
+  createAt:new Date().getTime(),
   vehicle: null
   }
   postId = null;

@@ -24,6 +24,7 @@ export interface Post {
   date: number;
   seat: number;
   vehicle: string;
+  createAt:number;
 
 }
 export interface Search {
