@@ -17,12 +17,12 @@ export class ListPage implements OnInit {
     start: null,
     end: null,
     time: null,
-    date:null,
-     
+    date: null,
+
   }
   searchId = null;
 
-  
+
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   GoogleAutocomplete: any;
@@ -41,24 +41,9 @@ export class ListPage implements OnInit {
 
   dec1: any
   dec2: any
-  /*
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  */
+  
 
-constructor(private todoService: TodoService,
+  constructor(private todoService: TodoService,
     private route: ActivatedRoute,
     private ngZone: NgZone,
     private loadingController: LoadingController,
@@ -72,7 +57,6 @@ constructor(private todoService: TodoService,
     this.autocompleteItems2 = [];
   }
 
-
   ngOnInit() {
     this.searchId = this.route.snapshot.params['id'];
     if (this.searchId) {
@@ -81,6 +65,7 @@ constructor(private todoService: TodoService,
     this.updateSearchResults();
     this.updateSearchResults2();
   }
+
 
   updateSearchResults() {
     if (this.autocomplete.input == '') {
@@ -118,17 +103,17 @@ constructor(private todoService: TodoService,
   selectSearchResult(item) {
     // this.clearMarkers();
     this.autocompleteItems = [];
-     this.search.start=item.description;
+    this.search.start = item.description;
     //this.dec1=item;
-   
+
   }
 
   selectSearchResult2(item) {
     // this.clearMarkers();
     this.autocompleteItems2 = [];
-     this.search.end=item.description;
+    this.search.end = item.description;
     //this.dec1=item;
-    
+
   }
   async loadSearch() {
     const loading = await this.loadingController.create({
