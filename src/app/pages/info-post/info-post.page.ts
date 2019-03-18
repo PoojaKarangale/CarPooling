@@ -34,29 +34,6 @@ export class InfoPostPage implements OnInit {
 
   ) { }
 
-  /*
-    ngOnInit() {
-      this.todoService.getTodos().subscribe(res=>{
-        this.todos=res;
-      });
-  
-      this.todoId = this.route.snapshot.params['id'];
-      if (this.todoId) {
-        this.loadTodo();
-      }
-    }
-    
-    async loadTodo() {
-      const loading = await this.loadingController.create({
-        message: 'Loading Todo..'
-      });
-      await loading.present();
-      this.todoService.getTodo(this.todoId).subscribe(rec => {
-        loading.dismiss();
-        this.todo = rec;
-      });
-    }
-  */
 
   ngOnInit() {
     this.todoService.getPosts().subscribe(res => {

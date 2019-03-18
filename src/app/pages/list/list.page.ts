@@ -57,6 +57,7 @@ export class ListPage implements OnInit {
   places: any;
 
   dec1: any
+<<<<<<< HEAD
   dec2: string='';
  // allItems = any [];
  
@@ -80,6 +81,10 @@ akola:string;
   private posts: Observable<Post[]>;
 
   private my:AngularFirestoreCollection<{}>;
+=======
+  dec2: any
+  
+>>>>>>> 74e2446819aa78d3468d431b9c34b082fca072d8
 
   constructor(private todoService: TodoService,
     private route: ActivatedRoute,
@@ -96,6 +101,7 @@ akola:string;
     this.autocomplete2 = { input: '' };
     this.autocompleteItems2 = [];
 
+<<<<<<< HEAD
 
    // this.dec2=this.search.end;
     this.postCollection = this.db.collection('posts',ref=>{
@@ -132,6 +138,8 @@ akola:string;
   }
   
   
+=======
+>>>>>>> 74e2446819aa78d3468d431b9c34b082fca072d8
   ngOnInit() {
     this.searchId = this.route.snapshot.params['id'];
     if (this.searchId) {
@@ -205,6 +213,7 @@ akola:string;
     
   }
 */
+
 
   updateSearchResults() {
     if (this.autocomplete.input == '') {
