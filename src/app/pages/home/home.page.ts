@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, PopoverController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Todo, TodoService } from 'src/app/services/todo.service';
+import { Todo, TodoService, Post } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +20,8 @@ export class HomePage implements OnInit {
   }
   todoId = null;
   */
+ private postCollection: AngularFirestoreCollection<Post>;
+  private posts: Observable<Post[]>;
   constructor(private nav: NavController,
     private todoService: TodoService,
     private modalCtr: ModalController,
@@ -48,6 +52,26 @@ export class HomePage implements OnInit {
     });
   }
   */
+/*
+ async saveSearch() {
+  const loading = await this.loadingController.create({
+    message: ''
+  });
+  await loading.present();
+
+  this.postCollection = this.db.collection('posts',ref=>{
+    return ref.where('end', '==', this.dec2);
+  });
+  this.posts = this.postCollection.valueChanges();
+  loading.dismiss();
+      this.nav.navigateForward('/info-post');
+
+  //this.postCollection = this.db.collection<Post>('posts');
+  //this.posts = this.postCollection.valueChanges();
+  this.posts.subscribe(data => console.log(data));
+
+
+}*/
   goInfoPost() {
     this.router.navigate(['info-post']);
   }

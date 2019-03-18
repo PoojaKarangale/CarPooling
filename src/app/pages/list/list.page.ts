@@ -1,9 +1,16 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { NavController, NavParams, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
-import { Search, TodoService } from 'src/app/services/todo.service';
+import { Search, TodoService, Post } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
 import { ViewChild, ElementRef } from '@angular/core';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { Recoverable } from 'repl';
+import { getQueryValue } from '@angular/core/src/view/query';
 
 declare var google;
 
@@ -17,12 +24,22 @@ export class ListPage implements OnInit {
     start: null,
     end: null,
     time: null,
-    date:null,
-     
+    date: null,
+
   }
+ /* my: Post = {
+    start: null,
+    end: null,
+    time: null,
+    date: null,
+    vehicle: null,
+    createAt: null,
+    seat: null,
+
+  } */
   searchId = null;
 
-  
+
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   GoogleAutocomplete: any;
@@ -40,29 +57,37 @@ export class ListPage implements OnInit {
   places: any;
 
   dec1: any
-  dec2: any
+  dec2: string='';
+ // allItems = any [];
+ 
+ //allItems:{};
   /*
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  */
+  animals: any;
+  filteredAnimals: any;
 
-constructor(private todoService: TodoService,
+  /// filter-able properties
+  family: string;
+  weight: number;
+  endangered: boolean;
+
+  /// Active filter rules
+  filters = {}
+  //countries: any[];
+  countries: Observable<Post[]>;*/
+akola:string;
+
+  private postCollection: AngularFirestoreCollection<Post>;
+  private posts: Observable<Post[]>;
+
+  private my:AngularFirestoreCollection<{}>;
+
+  constructor(private todoService: TodoService,
     private route: ActivatedRoute,
     private ngZone: NgZone,
     private loadingController: LoadingController,
-    private nav: NavController) {
+    private nav: NavController,
+    private db: AngularFirestore
+  ) {
     this.geocoder = new google.maps.Geocoder;
     this.markers = [];
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
@@ -70,17 +95,116 @@ constructor(private todoService: TodoService,
     this.autocompleteItems = [];
     this.autocomplete2 = { input: '' };
     this.autocompleteItems2 = [];
+
+
+   // this.dec2=this.search.end;
+    this.postCollection = this.db.collection('posts',ref=>{
+      return ref.where('end', '==', this.dec2);
+    });
+    this.posts = this.postCollection.valueChanges();
+
+    //this.postCollection = this.db.collection<Post>('posts');
+    //this.posts = this.postCollection.valueChanges();
+    this.posts.subscribe(data => console.log(data));
+
+
+    
+   // this.posts.subscribe(data => console.log(data));
+
+    //const collection=this.db.collection('posts');
+    //this.posts=this.collection.whereEqualTo('end',  'akola'))
+    
+
+    //this.posts.subscribe(data => data.where("","=","").valueChanges() );
+   
+    //const collection=this.db.collection('posts');
+    //this.posts=collection.where('end', '==', 'akola');
+    
+    
+   // console.log(ref)
+    
+/*
+    var currentDate = new Date().getTime();
+    this.postCollection.valueChanges()
+      .filter ((data) => new Date(data.start).getTime() < currentDate)
+      .subscribe ((data2) => console.log(data2));  
+      */
   }
-
-
+  
+  
   ngOnInit() {
     this.searchId = this.route.snapshot.params['id'];
     if (this.searchId) {
       this.loadSearch();
     }
+   // const my=new AngularFirestoreCollection<Post[]>();
+    
+   // this.get("akola");
+
+    //this.countries = this.getPostEntry("akola");
+   // console.log(this.countries.val());
+
     this.updateSearchResults();
     this.updateSearchResults2();
+    //this.getPostEntry("akola");
+   /// console.log(this.getByFilters("gcoea","akola"));
+   //this.posts=this.todoService.getByFilters("gcoea","akola").valueChanges();
+   //console.log(this.posts);
+
+  // this.posts.subscribe(data => console.log(data) );
+/*
+   this.posts.where("end", "==", "akola")
+   .onSnapshot(function(querySnapshot) {
+    let allItems:any[]; 
+         querySnapshot.forEach(function(doc) {
+             // binded to the UI
+             
+             allItems.push(doc.data());
+         });
+         if (allItems.length > 0) {
+          console.log("Document data:", allItems);
+          //resolve(allItems);
+      } else {
+        console.log("No such document!");
+        //resolve(null);
+    }
+
+     });
+
+     console.log(this.posts);*/
+ 
+     
   }
+
+ /* getVal(){
+    this.postCollection = this.db.collection('posts',ref=>{
+      return ref.where('end', '==', 'dec2');
+    });
+    this.posts = this.postCollection.valueChanges();
+  }*/
+
+  /*
+  //second method
+  async get(endR: string) {
+    const loading = await this.loadingController.create({
+      message: ''
+    });
+    await loading.present();
+    this.todoService.getPostEntry(endR).subscribe(rec => {
+      loading.dismiss();
+      this.my = rec;
+      console.log(rec);
+    });
+  }
+  */
+
+  /*
+  //another method
+  getPostEntry(postTitle: string): any {
+     console.log(this.db.collection<any>("post", ref => ref.where('end', '==', postTitle)).valueChanges().val());
+    
+  }
+*/
 
   updateSearchResults() {
     if (this.autocomplete.input == '') {
@@ -118,17 +242,17 @@ constructor(private todoService: TodoService,
   selectSearchResult(item) {
     // this.clearMarkers();
     this.autocompleteItems = [];
-     this.search.start=item.description;
+    this.search.start = item.description;
     //this.dec1=item;
-   
+
   }
 
   selectSearchResult2(item) {
     // this.clearMarkers();
     this.autocompleteItems2 = [];
-     this.search.end=item.description;
+    this.search.end = item.description;
     //this.dec1=item;
-    
+
   }
   async loadSearch() {
     const loading = await this.loadingController.create({
@@ -140,6 +264,7 @@ constructor(private todoService: TodoService,
       this.search = rec;
     });
   }
+  /*
   async saveSearch() {
     const loading = await this.loadingController.create({
       message: ''
@@ -157,6 +282,25 @@ constructor(private todoService: TodoService,
         this.nav.navigateForward('/info-post');
       });
     }
+
+  }*/
+  async saveSearch() {
+    const loading = await this.loadingController.create({
+      message: ''
+    });
+    await loading.present();
+
+    this.postCollection = this.db.collection('posts',ref=>{
+      return ref.where('end', '==', this.dec2);
+    });
+    this.posts = this.postCollection.valueChanges();
+    loading.dismiss();
+        this.nav.navigateForward('/info-post');
+
+    //this.postCollection = this.db.collection<Post>('posts');
+    //this.posts = this.postCollection.valueChanges();
+    this.posts.subscribe(data => console.log(data));
+  
 
   }
 

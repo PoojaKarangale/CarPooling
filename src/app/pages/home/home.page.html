@@ -34,5 +34,10 @@
 </ion-header>
 
 <ion-content padding>
+    <div *ngFor="let note of posts|async">
+        <h6>{{note|json}}</h6>
+
+    
+      </div>
   
 </ion-content>

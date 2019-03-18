@@ -7,10 +7,16 @@
       REQUEST RIDE
     </ion-title>
   </ion-toolbar>
+  
+
 </ion-header>
 
 <ion-content class="bg_class" padding fullscreen>
   <div class="info_bg">
+
+    <!--    <div *ngFor="let animal of filteredAnimals"> </div> -->
+          
+        
 
     <ion-item lines="none">
       <ion-col>
@@ -31,7 +37,7 @@
     <ion-item lines="none">
       <ion-col>
         <ion-row>
-          <ion-searchbar id="dest" [(ngModel)]="search.end" [(ngModel)]="dec2" [(ngModel)]="autocomplete2.input"
+          <ion-searchbar id="dest"  [(ngModel)]="search.end" [(ngModel)]="dec2" [(ngModel)]="autocomplete2.input"
             (ionInput)="updateSearchResults2()" placeholder="Search for destination" [showCancelButton]="shouldShowCancel"></ion-searchbar>
         </ion-row>
 
@@ -67,7 +73,7 @@
 
     <ion-item lines="none">
       <ion-label>Destination&nbsp;</ion-label>
-      <ion-input class="placeholder-text" required required type="text" placeholder="Destination" [(ngModel)]="search.end"></ion-input>
+      <ion-input class="placeholder-text" required required type="text" placeholder="Destination" [(ngModel)]="dec2" [(ngModel)]="search.end"></ion-input>
     </ion-item>
 
     <ion-item required lines="none">
@@ -87,7 +93,30 @@
     </ion-item>
 
     <ion-button color="white" class="save" expands="full" (click)="saveSearch()"><b>SAVE</b></ion-button>
-  </div>
+   
+    <ion-button color="white" class="save" expands="full" (click)="getVal()"><b>get</b></ion-button>
+   
+   <!--  <h6>{{countries.vehicle}}</h6>
+    
+          <ul>
+            <li>start: {{countries.start}}</li>
+            <li>dest: {{countries.end}} pounds</li>
+            <li>seat: {{countries.seat}}</li>
+          </ul>
+          -->
+
+          <div *ngFor="let note of posts|async">
+            <h6>{{note|json}}</h6>
+    
+        
+          </div>
+
+        </div>
+ 
+  
+
+  
+
 </ion-content>
 <!--
 <ion-content>

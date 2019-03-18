@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { HomePage } from './pages/home/home.page';
 
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @NgModule({
   declarations: [AppComponent
@@ -31,6 +32,7 @@ import { HomePage } from './pages/home/home.page';
     
   ],
   providers: [
+    AngularFireDatabase,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

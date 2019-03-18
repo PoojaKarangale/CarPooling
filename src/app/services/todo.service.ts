@@ -49,12 +49,12 @@ export class TodoService {
 
   private searchCollection: AngularFirestoreCollection<Search>;
   private searches: Observable<Search[]>;
-
+db:AngularFirestore;
 
   constructor(db: AngularFirestore,
     private route: ActivatedRoute,
     public router: Router) {
-
+//this.db=db;
     this.todosCollection = db.collection<Todo>('todos');
     this.todos = this.todosCollection.snapshotChanges().pipe(
       map(actions => {
@@ -122,7 +122,21 @@ export class TodoService {
   removePost(id) {
     return this.postCollection.doc(id).delete();
   }
-
+  
+  getByFilters(size: string, category: string) {
+  //  return this.postCollection = this.db.collection<Post>('post', ref => 
+      // Compose a query using multiple .where() methods
+      return this.postCollection.get()
+        .where('start', '==', size)
+        .where('end', '==', category);
+     
+    
+   
+  }
+  /*getPostEntry ( postTitle: string ): Observable<any> {
+    return this.db.collection<any> ( "posts" , ref => ref.where ( 'title' , '==' , postTitle ) ).valueChanges ();
+  }
+*/
 
   getSearches() {
     return this.searches;
