@@ -13,7 +13,8 @@ declare var google;
 export class InfoSearchPage implements OnInit {
 
   post: Post = {
- 
+ name:null,
+ mobile:null,
     start: null,
   end: null,
   time: null,

@@ -1,16 +1,18 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { NavController, NavParams, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
-import { Search, TodoService, Post } from 'src/app/services/todo.service';
+import { Search, TodoService, Post, Feed, Todo } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
 import { ViewChild, ElementRef } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import * as _ from 'lodash';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { Recoverable } from 'repl';
 import { getQueryValue } from '@angular/core/src/view/query';
+import { HomePage } from '../home/home.page';
+import { map, flatMap } from 'rxjs/operators';
 
 declare var google;
 
@@ -57,7 +59,6 @@ export class ListPage implements OnInit {
   places: any;
 
   dec1: any
-<<<<<<< HEAD
   dec2: string='';
  // allItems = any [];
  
@@ -80,11 +81,10 @@ akola:string;
   private postCollection: AngularFirestoreCollection<Post>;
   private posts: Observable<Post[]>;
 
+  private feedCollection: AngularFirestoreCollection<Feed>;
+  private feedItem: Observable<Feed[]>;
+
   private my:AngularFirestoreCollection<{}>;
-=======
-  dec2: any
-  
->>>>>>> 74e2446819aa78d3468d431b9c34b082fca072d8
 
   constructor(private todoService: TodoService,
     private route: ActivatedRoute,
@@ -101,9 +101,9 @@ akola:string;
     this.autocomplete2 = { input: '' };
     this.autocompleteItems2 = [];
 
-<<<<<<< HEAD
 
    // this.dec2=this.search.end;
+   /*
     this.postCollection = this.db.collection('posts',ref=>{
       return ref.where('end', '==', this.dec2);
     });
@@ -112,7 +112,7 @@ akola:string;
     //this.postCollection = this.db.collection<Post>('posts');
     //this.posts = this.postCollection.valueChanges();
     this.posts.subscribe(data => console.log(data));
-
+*/
 
     
    // this.posts.subscribe(data => console.log(data));
@@ -138,8 +138,6 @@ akola:string;
   }
   
   
-=======
->>>>>>> 74e2446819aa78d3468d431b9c34b082fca072d8
   ngOnInit() {
     this.searchId = this.route.snapshot.params['id'];
     if (this.searchId) {
@@ -184,6 +182,9 @@ akola:string;
      
   }
 
+  go(){
+    this.nav.navigateForward('/home/${this.dec2}');
+  }
  /* getVal(){
     this.postCollection = this.db.collection('posts',ref=>{
       return ref.where('end', '==', 'dec2');
@@ -293,7 +294,7 @@ akola:string;
     }
 
   }*/
-  async saveSearch() {
+  async saveSearch(event ,item) {
     const loading = await this.loadingController.create({
       message: ''
     });
@@ -304,13 +305,42 @@ akola:string;
     });
     this.posts = this.postCollection.valueChanges();
     loading.dismiss();
-        this.nav.navigateForward('/info-post');
+      //  this.nav.navigateForward('/info-post');
 
     //this.postCollection = this.db.collection<Post>('posts');
     //this.posts = this.postCollection.valueChanges();
-    this.posts.subscribe(data => console.log(data));
+    //this.posts.subscribe(data => console.log(data));
+    
+  /*  this.postCollection = this.db.collection('posts');
+this.feedItem = this.postCollection.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        //here you get the data without first name
+        const data = a.payload.doc.data() ;
+        //get the signup_id for getting doc from coll-signup
+        const signupId = data.end;
+        //get the related document
+        return this.db.collection('todos').doc(signupId).snapshotChanges().map(actions => {
+          return actions.payload.data();
+        }).map(signup => {
+          //export the data in feeds interface format
+          return { firstName: signup.name, ...data };
+        });
+      })
+    }).flatMap(feeds => combineLatest(feeds));
+*/
+    this.postCollection = this.db.collection('posts');
+    this.feedItem = this.postCollection.snapshotChanges().pipe(map(changes  => {
+     return changes.map( change => {
+       const data = change.payload.doc.data();
+       const signupId = data.end;
+       const title = data.start;
+         return this.db.doc('todos/' + signupId).valueChanges().pipe(map( (collSignupData: Todo) => {
+           return Object.assign(
+             {name: collSignupData.name, end: signupId, start: title}); }
+         ));
+     });
+   }), flatMap(feeds => combineLatest(feeds)));
   
-
   }
 
   // add back when alpha.4 is out

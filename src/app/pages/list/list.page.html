@@ -94,22 +94,33 @@
 
     <ion-button color="white" class="save" expands="full" (click)="saveSearch()"><b>SAVE</b></ion-button>
    
-    <ion-button color="white" class="save" expands="full" (click)="getVal()"><b>get</b></ion-button>
-   
-   <!--  <h6>{{countries.vehicle}}</h6>
+    <div *ngFor="let note of posts|async">
+     <h6>{{note.date}}</h6>
     
           <ul>
-            <li>start: {{countries.start}}</li>
-            <li>dest: {{countries.end}} pounds</li>
-            <li>seat: {{countries.seat}}</li>
+              <li>name: {{note.name}}</li>
+              <li>mobile: {{note.mobile}}</li>
+            <li>start: {{note.start}}</li>
+            <li>dest: {{note.end}} </li>
+            <li>seat: {{note.seat}}</li>
+            <li>time: {{note.time}}</li>
           </ul>
-          -->
+          
 
-          <div *ngFor="let note of posts|async">
-            <h6>{{note|json}}</h6>
-    
-        
           </div>
+          <div *ngFor="let note of feedItem|async">
+            <h6>{{note.date}}</h6>
+           
+                 <ul>
+                    <li>name: {{note.name}}</li>
+                   <li>start: {{note.start}}</li>
+                   <li>dest: {{note.end}} </li>
+                   <li>seat: {{note.seat}}</li>
+                   <li>time: {{note.time}}</li>
+                 </ul>
+                 
+       
+                 </div>
 
         </div>
  

@@ -47,6 +47,15 @@
       <ion-button class="sdes" color="white" expands="full" routerLink="/map"><b>Choose Source and Destination</b></ion-button>
     </ion-item>
 -->
+<ion-item lines="none">
+    <ion-label>name&nbsp;</ion-label>
+    <ion-input class="placeholder-text" requiredrequired type="text" placeholder="Name" [(ngModel)]="post.name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label>mobile&nbsp;</ion-label>
+    <ion-input class="placeholder-text" required required type="tel" placeholder="Mobile" [(ngModel)]="post.mobile"></ion-input>
+  </ion-item>
     <ion-item lines="none">
       <ion-label>Source&nbsp;</ion-label>
       <ion-input class="placeholder-text" requiredrequired type="text" placeholder="Source Location" [(ngModel)]="post.start"></ion-input>

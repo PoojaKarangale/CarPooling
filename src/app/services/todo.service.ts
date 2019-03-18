@@ -17,7 +17,8 @@ export interface Todo {
 }
 
 export interface Post {
-
+  name: string;
+  mobile: number;
   start: string;
   end: string;
   time: number;
@@ -33,6 +34,23 @@ export interface Search {
   end: string;
   time: number;
   date: number;
+
+
+
+}
+
+export interface Feed {
+
+  id:string;
+  start: string;
+  end: string;
+  time: number;
+  date: number;
+  name: string;
+  lastName: string;
+  gender: string;
+  email: string;
+  mobile: number;
 
 
 }
