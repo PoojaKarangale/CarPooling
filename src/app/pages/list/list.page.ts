@@ -9,7 +9,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import * as _ from 'lodash';
 import { Observable, combineLatest } from 'rxjs';
-import { Recoverable } from 'repl';
+
 import { getQueryValue } from '@angular/core/src/view/query';
 import { HomePage } from '../home/home.page';
 import { map, flatMap } from 'rxjs/operators';
