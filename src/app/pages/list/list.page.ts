@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { NavController, NavParams, LoadingController } from '@ionic/angular';
+import { NavController, NavParams, LoadingController,AlertController } from '@ionic/angular';
 import * as firebase from 'firebase';
 import { Search, TodoService, Post, Feed, Todo } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
@@ -58,8 +58,9 @@ export class ListPage implements OnInit {
   nearbyItems: any[];
   places: any;
 
-  dec1: any
+  dec1: string='';
   dec2: string='';
+  date1:number;
  // allItems = any [];
  
  //allItems:{};
@@ -86,12 +87,15 @@ akola:string;
 
   private my:AngularFirestoreCollection<{}>;
 
+  //alertCtrl: any;
+
   constructor(private todoService: TodoService,
     private route: ActivatedRoute,
     private ngZone: NgZone,
     private loadingController: LoadingController,
     private nav: NavController,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private alertController:AlertController
   ) {
     this.geocoder = new google.maps.Geocoder;
     this.markers = [];
@@ -182,6 +186,32 @@ akola:string;
      
   }
 
+ 
+  async alert() {
+    //  this.todoService.removeTodo(item.id);
+  
+     // this.todoService.removeTodo(item.id);
+  
+     
+    const alert = await this.alertController.create({
+      header: 'Confirm',
+      message: 'Congratulations!! Your Ride is Booked. Contact your rider',
+      buttons: [
+        {
+          text: 'okay',
+          
+          cssClass: 'secondary',
+          handler: (blah) => {
+          
+          }
+        }
+      ]
+    });
+    
+    await alert.present(); 
+    }
+
+
   go(){
     this.nav.navigateForward('/home/${this.dec2}');
   }
@@ -253,7 +283,7 @@ akola:string;
     // this.clearMarkers();
     this.autocompleteItems = [];
     this.search.start = item.description;
-    //this.dec1=item;
+    this.dec1=item.description;
 
   }
 
@@ -261,7 +291,7 @@ akola:string;
     // this.clearMarkers();
     this.autocompleteItems2 = [];
     this.search.end = item.description;
-    //this.dec1=item;
+    this.dec2=item.description;
 
   }
   async loadSearch() {
@@ -300,9 +330,15 @@ akola:string;
     });
     await loading.present();
 
+
     this.postCollection = this.db.collection('posts',ref=>{
-      return ref.where('end', '==', this.dec2);
+      return ref.where('end', '==', this.dec2)
+     .where('start', '==', this.dec1)
+      .where('date', '==', this.date1); 
+    
     });
+
+
     this.posts = this.postCollection.valueChanges();
     loading.dismiss();
       //  this.nav.navigateForward('/info-post');
