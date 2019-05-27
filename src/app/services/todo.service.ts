@@ -141,7 +141,7 @@ db:AngularFirestore;
     return this.postCollection.doc(id).delete();
   }
   
-  getByFilters(size: string, category: string) {
+ /* getByFilters(size: string, category: string) {
   //  return this.postCollection = this.db.collection<Post>('post', ref => 
       // Compose a query using multiple .where() methods
       return this.postCollection.get()
